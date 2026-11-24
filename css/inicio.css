@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --negro: #070707;
+    --negro2: #111111;
+    --blanco: #f7f7f7;
+    --gris: #cccccc;
+
+    --oro1: #6e4a12;
+    --oro2: #b88934;
+    --oro3: #f3d889;
+    --oro4: #fff3c2;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0c0c0c 45%, #050505 100%);
+    color: white;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.pagina-inicio {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+    overflow: hidden;
+}
+
+/* BRILLO SUAVE */
+.pagina-inicio::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(232, 197, 116, 0.08), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* CONTENIDO CENTRAL */
+.contenedor {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    max-width: 850px;
+    padding: 30px 20px;
+}
+
+h2 {
+    font-style: italic;
+    font-weight: normal;
+    color: #dddddd;
+    font-size: clamp(22px, 3vw, 34px);
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    color: white;
+    text-shadow: 0 0 18px rgba(255,255,255,0.12);
+}
+
+/* BARRA DORADA */
+.barra-dorada {
+    width: min(430px, 80%);
+    height: 12px;
+    margin: 0 auto 35px;
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        #61400c 0%,
+        #c08a34 20%,
+        #fff0b7 50%,
+        #c08a34 80%,
+        #61400c 100%
+    );
+
+    box-shadow:
+        0 0 10px rgba(255, 214, 120, 0.35),
+        0 0 30px rgba(255, 214, 120, 0.18),
+        inset 0 1px 3px rgba(255,255,255,0.4);
+}
+
+p {
+    color: #d0d0d0;
+    font-size: clamp(16px, 2vw, 21px);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.texto-secundario {
+    margin-bottom: 22px;
+}
+
+.indicacion {
+    font-size: 14px;
+    color: #e8d7a5;
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    animation: aparecer 2s infinite ease-in-out;
+}
+
+@keyframes aparecer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* BOTÓN SIN FONDO */
+.boton-diamante {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 95px;
+    height: 95px;
+    transition: transform 0.25s ease;
+}
+
+/* EL DIAMANTE SOLO */
+.diamante {
+    width: 68px;
+    height: 68px;
+    display: block;
+    transform: rotate(45deg);
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #8fa6b8 0%,
+        #ffffff 20%,
+        #cfe8f5 38%,
+        #ffffff 55%,
+        #8aa3b5 100%
+    );
+
+    border: 2px solid rgba(255,255,255,0.95);
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.45),
+        0 0 35px rgba(180,220,255,0.30),
+        inset 0 0 12px rgba(255,255,255,0.75);
+
+    position: relative;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+/* Facetas */
+.diamante::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(255,255,255,0.85);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.95),
+        rgba(160,210,255,0.15),
+        rgba(255,255,255,0.35)
+    );
+}
+
+/* Destello */
+.diamante::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 16px;
+    left: -25%;
+    top: 38%;
+    transform: rotate(-28deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.95),
+        transparent
+    );
+    filter: blur(3px);
+    animation: destello 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: rotate(45deg) translateY(0);
+    }
+    50% {
+        transform: rotate(45deg) translateY(-4px);
+    }
+}
+
+@keyframes destello {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 1; }
+}
+
+.boton-diamante:hover {
+    transform: scale(1.12);
+}
+
+.boton-diamante:hover .diamante {
+    box-shadow:
+        0 0 24px rgba(255,255,255,0.75),
+        0 0 45px rgba(180,220,255,0.55),
+        inset 0 0 12px rgba(255,255,255,0.8);
+}
+
+.boton-diamante:active {
+    transform: scale(0.95);
+}
+
+.texto-final {
+    font-size: 13px;
+    color: #a6a6a6;
+    letter-spacing: 1px;
+    margin-top: 28px;
+}
+
+/* LÍNEAS */
+.linea {
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(233, 196, 112, 0.6),
+        transparent
+    );
+}
+
+.linea-superior {
+    top: 10%;
+}
+
+.linea-inferior {
+    bottom: 10%;
+}
+
+/* ESQUINAS DORADAS */
+.esquina {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    z-index: 1;
+}
+
+.esquina::before,
+.esquina::after {
+    content: "";
+    position: absolute;
+    border-radius: 50% 10% 50% 10%;
+    background: linear-gradient(
+        135deg,
+        #5a3708 0%,
+        #b7852f 28%,
+        #fff0b6 48%,
+        #b7852f 68%,
+        #573609 100%
+    );
+    box-shadow:
+        inset 2px 2px 4px rgba(255,255,255,0.32),
+        inset -5px -5px 8px rgba(0,0,0,0.30),
+        0 0 10px rgba(240, 194, 101, 0.15);
+}
+
+.esquina::before {
+    width: 100px;
+    height: 36px;
+}
+
+.esquina::after {
+    width: 75px;
+    height: 25px;
+}
+
+/* Superior izquierda */
+.esquina-superior-izquierda {
+    top: 0;
+    left: 0;
+}
+.esquina-superior-izquierda::before {
+    top: 10px;
+    left: -18px;
+    transform: rotate(-38deg);
+}
+.esquina-superior-izquierda::after {
+    top: 43px;
+    left: -10px;
+    transform: rotate(-38deg);
+}
+
+/* Superior derecha */
+.esquina-superior-derecha {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+.esquina-superior-derecha::before {
+    top: 10px;
+    left: -18px;
+    transform: rotate(-38deg);
+}
+.esquina-superior-derecha::after {
+    top: 43px;
+    left: -10px;
+    transform: rotate(-38deg);
+}
+
+/* Inferior izquierda */
+.esquina-inferior-izquierda {
+    bottom: 0;
+    left: 0;
+    transform: scaleY(-1);
+}
+.esquina-inferior-izquierda::before {
+    top: 10px;
+    left: -18px;
+    transform: rotate(-38deg);
+}
+.esquina-inferior-izquierda::after {
+    top: 43px;
+    left: -10px;
+    transform: rotate(-38deg);
+}
+
+/* Inferior derecha */
+.esquina-inferior-derecha {
+    bottom: 0;
+    right: 0;
+    transform: scale(-1);
+}
+.esquina-inferior-derecha::before {
+    top: 10px;
+    left: -18px;
+    transform: rotate(-38deg);
+}
+.esquina-inferior-derecha::after {
+    top: 43px;
+    left: -10px;
+    transform: rotate(-38deg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .pagina-inicio {
+        padding: 70px 18px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .barra-dorada {
+        height: 10px;
+    }
+
+    .diamante {
+        width: 60px;
+        height: 60px;
+    }
+
+    .boton-diamante {
+        width: 85px;
+        height: 85px;
+    }
+
+    .texto-final {
+        font-size: 12px;
+    }
+}
+
+/* =====================================
+   CONTENEDOR DE PÁGINAS
+===================================== */
+
+#pantallaHistoria {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    background: #080808;
+    z-index: 50;
+}
+
+#pantallaHistoria[hidden] {
+    display: none;
+}
+
+#visorHistoria {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* BOTÓN FLOTANTE DE MÚSICA */
+
+#controlMusica {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    width: 55px;
+    height: 55px;
+
+    border: 1px solid #d6ad55;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        145deg,
+        #443010,
+        #d1a450,
+        #654619
+    );
+
+    color: white;
+    font-size: 26px;
+
+    cursor: pointer;
+    z-index: 100;
+
+    box-shadow:
+        0 0 15px rgba(255, 210, 90, 0.3);
+
+    transition: transform 0.3s ease;
+}
+
+#controlMusica:hover {
+    transform: scale(1.12);
+}
+
+#controlMusica[hidden] {
+    display: none;
+}

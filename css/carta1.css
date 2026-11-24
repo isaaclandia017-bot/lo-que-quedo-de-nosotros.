@@ -1,0 +1,1806 @@
+
+/* ==========================================
+   CARTA I — PERDÓNAME, SAMI
+   ESCENARIO TEATRAL
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+:root {
+    --rojo-oscuro: #470711;
+    --rojo-medio: #961b2c;
+    --rojo-claro: #d44755;
+    --oro: #bb914a;
+    --oro-claro: #f4dc9e;
+    --papel: #fff8ed;
+    --tinta: #48362f;
+    --azul: #b6d9e9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #090708;
+    color: var(--tinta);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   ESCENARIO
+========================================== */
+
+.escenario {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 175px 45px 185px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 40%,
+            rgba(255,255,255,.5),
+            transparent 65%
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #f4e9d7 0px,
+            #f4e9d7 38px,
+            #ecdec9 39px,
+            #f1e3d1 75px
+        );
+}
+
+/* Textura delicada sobre el fondo */
+
+.escenario::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 5px,
+            rgba(108,83,55,.025) 6px
+        );
+}
+
+/* ==========================================
+   CORTINAS DE TERCIOPELO
+========================================== */
+
+.cortina-superior,
+.cortina-izquierda,
+.cortina-derecha {
+    position: absolute;
+    pointer-events: none;
+}
+
+.cortina-superior {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 145px;
+    z-index: 8;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #430711 0%,
+            #a92234 5%,
+            #d64a58 8%,
+            #690a19 13%,
+            #b72d3e 18%,
+            #3e0510 22%
+        );
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 61%,
+        92% 76%,
+        83% 55%,
+        75% 76%,
+        66% 55%,
+        58% 76%,
+        50% 55%,
+        42% 76%,
+        34% 55%,
+        25% 76%,
+        17% 55%,
+        8% 76%,
+        0 61%
+    );
+
+    filter: drop-shadow(0 10px 9px rgba(0,0,0,.35));
+    animation: bajarCortina 1.2s ease-out both;
+}
+
+.cortina-superior::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,215,215,.15),
+        transparent 55%,
+        rgba(32,0,0,.6)
+    );
+}
+
+.cortina-izquierda,
+.cortina-derecha {
+    top: 0;
+    height: 100%;
+    width: clamp(45px, 11vw, 125px);
+    z-index: 6;
+
+    background: repeating-linear-gradient(
+        90deg,
+        #3c030d 0px,
+        #9c1c2c 17px,
+        #d34150 29px,
+        #6d0918 43px,
+        #3a030b 58px
+    );
+
+    box-shadow:
+        0 0 25px rgba(0,0,0,.28),
+        inset 12px 0 22px rgba(0,0,0,.32);
+}
+
+.cortina-izquierda {
+    left: 0;
+    clip-path: polygon(
+        0 0, 100% 0,
+        78% 36%, 55% 58%,
+        72% 100%, 0 100%
+    );
+}
+
+.cortina-derecha {
+    right: 0;
+    transform: scaleX(-1);
+    clip-path: polygon(
+        0 0, 100% 0,
+        78% 36%, 55% 58%,
+        72% 100%, 0 100%
+    );
+}
+
+@keyframes bajarCortina {
+    from {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   GOTAS AZULES
+========================================== */
+
+.gotas {
+    position: absolute;
+    top: 80px;
+    left: 18%;
+    width: 64%;
+    height: 105px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    z-index: 9;
+    pointer-events: none;
+}
+
+.gota {
+    position: relative;
+    margin-top: 20px;
+
+    width: 32px;
+    height: 46px;
+
+    background: linear-gradient(
+        120deg,
+        #effaff,
+        #b5deef 45%,
+        #79a7c6
+    );
+
+    border: 2px solid #66879a;
+    border-radius: 55% 55% 65% 65%;
+
+    clip-path: polygon(
+        50% 0,
+        80% 25%,
+        100% 61%,
+        90% 85%,
+        65% 100%,
+        35% 100%,
+        10% 85%,
+        0 61%,
+        20% 25%
+    );
+
+    filter: drop-shadow(0 3px 5px rgba(53,101,136,.2));
+
+    transform-origin: top center;
+    animation: balancear 3.8s ease-in-out infinite;
+}
+
+.gota:nth-child(2) {
+    margin-top: 36px;
+    animation-delay: .7s;
+}
+
+.gota:nth-child(3) {
+    margin-top: 24px;
+    animation-delay: 1.3s;
+}
+
+.gota:nth-child(4) {
+    margin-top: 39px;
+    animation-delay: 1.9s;
+}
+
+@keyframes balancear {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+/* ==========================================
+   BOTÓN PARA REGRESAR
+========================================== */
+
+.boton-regresar {
+    position: relative;
+    z-index: 12;
+
+    display: block;
+    margin: 0 auto 25px;
+    padding: 10px 20px;
+
+    border: 1px solid #b58c50;
+    border-radius: 30px;
+
+    background: rgba(255,250,239,.9);
+    color: #704b39;
+
+    font-family: inherit;
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: transform .25s, background .25s;
+}
+
+.boton-regresar:hover {
+    transform: translateY(-3px);
+    background: #ffffff;
+}
+
+/* ==========================================
+   CARTA CENTRAL
+========================================== */
+
+.carta-perdon {
+    position: relative;
+    z-index: 5;
+
+    width: min(760px, 100%);
+    margin: 0 auto;
+
+    padding: 35px clamp(22px, 4vw, 50px);
+
+    border: 2px solid #c5a675;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.65),
+            transparent 55%
+        ),
+        var(--papel);
+
+    box-shadow:
+        0 20px 55px rgba(82,53,34,.25),
+        inset 0 0 0 7px rgba(199,164,105,.08);
+
+    animation: aparecerCarta 1s ease .2s both;
+}
+
+.numero {
+    text-align: center;
+    color: #a37d43;
+    font-size: 17px;
+    letter-spacing: 4px;
+}
+
+.carta-perdon h1 {
+    text-align: center;
+
+    color: #832738;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(39px, 5vw, 65px);
+    font-weight: normal;
+
+    margin: 8px 0 14px;
+}
+
+.separador {
+    height: 2px;
+    width: 170px;
+    margin: 0 auto 26px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--oro),
+        transparent
+    );
+}
+
+.contenido-carta {
+    max-height: min(55vh, 520px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    padding: 5px 12px 12px 2px;
+
+    scrollbar-color: #c8a675 #f2e7d5;
+    scrollbar-width: thin;
+}
+
+.contenido-carta p {
+    color: #493a34;
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.55;
+    margin-bottom: 17px;
+}
+
+.contenido-carta .frase-final {
+    margin-top: 25px;
+    font-weight: 700;
+    color: #822b3a;
+    text-align: center;
+}
+
+.contenido-carta .firma {
+    text-align: right;
+    font-style: italic;
+    color: #7f604d;
+}
+
+@keyframes aparecerCarta {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ==========================================
+   RATITA — SILUETA NEGRA
+========================================== */
+
+.ratita {
+    position: absolute;
+    right: 6%;
+    bottom: 85px;
+
+    width: 110px;
+    height: 135px;
+
+    z-index: 7;
+
+    animation: respirarRatita 4s ease-in-out infinite;
+}
+
+.ratita .oreja,
+.ratita .cabeza,
+.ratita .cuerpo {
+    position: absolute;
+    background: #090909;
+}
+
+.ratita .oreja {
+    width: 34px;
+    height: 39px;
+    top: 4px;
+    border-radius: 50%;
+}
+
+.ratita .oreja.izquierda {
+    left: 17px;
+    transform: rotate(-15deg);
+}
+
+.ratita .oreja.derecha {
+    left: 53px;
+    transform: rotate(15deg);
+}
+
+.ratita .cabeza {
+    width: 75px;
+    height: 66px;
+    top: 25px;
+    left: 15px;
+    border-radius: 48%;
+}
+
+.ratita .cuerpo {
+    width: 88px;
+    height: 80px;
+    bottom: 0;
+    left: 10px;
+    border-radius: 50% 50% 35% 35%;
+}
+
+.ratita .cola {
+    position: absolute;
+    width: 75px;
+    height: 45px;
+    right: -52px;
+    bottom: 8px;
+
+    border: 8px solid #090909;
+    border-left: none;
+    border-top: none;
+
+    border-radius: 0 0 80% 60%;
+    transform: rotate(-20deg);
+}
+
+@keyframes respirarRatita {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ==========================================
+   ZONA DE LA LLAVE
+========================================== */
+
+.zona-llave {
+    position: relative;
+    z-index: 10;
+
+    width: min(420px, 100%);
+    margin: 38px auto 30px;
+    text-align: center;
+}
+
+.texto-llave {
+    color: #735442;
+    font-size: 24px;
+    font-style: italic;
+    margin-bottom: 18px;
+}
+
+.llave-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+/* BOTÓN DE LLAVE SIN FONDO */
+
+.llave {
+    position: relative;
+    display: block;
+
+    width: 155px;
+    height: 90px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform .25s;
+    animation: flotarLlave 3s ease-in-out infinite;
+}
+
+.llave:hover {
+    transform: scale(1.1);
+}
+
+@keyframes flotarLlave {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -7px; }
+}
+
+/* ARGOLLA */
+
+.anillo {
+    position: absolute;
+    left: 10px;
+    top: 33px;
+
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+
+    border: 9px solid #d0a442;
+
+    background: transparent;
+
+    box-shadow:
+        inset 0 0 4px rgba(0,0,0,.3),
+        0 0 12px rgba(236,189,76,.25);
+}
+
+/* CUERPO METÁLICO */
+
+.cuerpo-llave {
+    position: absolute;
+    left: 44px;
+    top: 46px;
+
+    width: 92px;
+    height: 13px;
+    border-radius: 5px;
+
+    background: linear-gradient(
+        180deg,
+        #fff0a5,
+        #b57b20,
+        #f5cc63
+    );
+}
+
+/* DIENTES */
+
+.diente {
+    position: absolute;
+    width: 13px;
+
+    background: linear-gradient(
+        90deg,
+        #a97724,
+        #f1c95e
+    );
+}
+
+.diente.uno {
+    height: 23px;
+    top: 51px;
+    left: 112px;
+}
+
+.diente.dos {
+    height: 29px;
+    top: 51px;
+    left: 127px;
+}
+
+/* LLAVERO: TACÓN ROJO */
+
+.llavero {
+    position: absolute;
+    left: 17px;
+    top: 2px;
+
+    width: 65px;
+    height: 43px;
+
+    transform: rotate(-10deg);
+}
+
+.zapato {
+    position: absolute;
+    left: 3px;
+    top: 9px;
+
+    width: 55px;
+    height: 24px;
+
+    border-radius: 65% 20% 55% 25%;
+
+    background: linear-gradient(
+        145deg,
+        #ff6874,
+        #a80c26 52%,
+        #57030d
+    );
+
+    box-shadow:
+        inset 0 3px 5px rgba(255,255,255,.4),
+        0 3px 5px rgba(0,0,0,.25);
+
+    clip-path: polygon(
+        0 30%, 20% 0,
+        42% 55%, 100% 70%,
+        95% 100%, 15% 88%
+    );
+}
+
+.tacon {
+    position: absolute;
+    left: 15px;
+    top: 26px;
+
+    width: 5px;
+    height: 20px;
+
+    background: #750717;
+    transform: rotate(13deg);
+    border-radius: 2px;
+}
+
+/* BOTÓN DE AYUDA */
+
+.boton-ayuda {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+    border: 2px solid #ad874d;
+
+    color: #6b4b23;
+    background: #fff5dd;
+
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
+    transition: transform .25s;
+}
+
+.boton-ayuda:hover {
+    transform: scale(1.1);
+}
+
+.estado-llave {
+    font-size: 19px;
+    color: #775b49;
+    margin-top: 12px;
+    min-height: 25px;
+}
+
+/* ==========================================
+   OLAS DECORATIVAS INFERIORES
+========================================== */
+
+.olas-inferiores {
+    position: absolute;
+    bottom: -28px;
+    left: -3%;
+
+    width: 106%;
+    height: 115px;
+
+    z-index: 4;
+    pointer-events: none;
+
+    background: linear-gradient(
+        180deg,
+        #eaf6fb,
+        #aecde0 65%,
+        #81aec6
+    );
+
+    clip-path: polygon(
+        0 45%,
+        8% 36%,
+        17% 57%,
+        26% 40%,
+        35% 53%,
+        44% 34%,
+        53% 57%,
+        62% 37%,
+        71% 52%,
+        80% 34%,
+        90% 55%,
+        100% 42%,
+        100% 100%,
+        0 100%
+    );
+}
+
+/* ==========================================
+   VENTANA DE AYUDA
+========================================== */
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0,0,0,.72);
+    padding: 20px;
+}
+
+.ventana-ayuda {
+    position: relative;
+    width: min(540px, 100%);
+
+    padding: 35px;
+
+    background: #fff8ea;
+    color: #4d392f;
+
+    border: 3px solid #c5a16d;
+    border-radius: 18px;
+
+    box-shadow: 0 25px 80px rgba(0,0,0,.45);
+    animation: aparecerCarta .4s ease both;
+}
+
+.ventana-ayuda h2 {
+    color: #872a3b;
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.ventana-ayuda p {
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.nota-ayuda {
+    font-style: italic;
+    color: #8d6c4b;
+}
+
+.cerrar-ayuda {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    border: none;
+    background: none;
+
+    font-size: 35px;
+    color: #862d3b;
+    cursor: pointer;
+}
+
+/* ==========================================
+   ADAPTACIÓN A CELULARES
+========================================== */
+
+@media (max-width: 650px) {
+    .escenario {
+        padding: 150px 18px 170px;
+    }
+
+    .cortina-izquierda,
+    .cortina-derecha {
+        width: 45px;
+        opacity: .75;
+    }
+
+    .cortina-superior {
+        height: 115px;
+    }
+
+    .gotas {
+        top: 65px;
+        left: 13%;
+        width: 74%;
+    }
+
+    .gota {
+        width: 25px;
+        height: 36px;
+    }
+
+    .carta-perdon {
+        padding: 27px 20px;
+    }
+
+    .contenido-carta {
+        max-height: 54vh;
+    }
+
+    .contenido-carta p {
+        font-size: 19px;
+    }
+
+    .ratita {
+        right: 10%;
+        bottom: 55px;
+        transform: scale(.65);
+        transform-origin: bottom right;
+    }
+
+    .zona-llave {
+        margin-top: 30px;
+    }
+
+    .olas-inferiores {
+        height: 85px;
+    }
+
+    .ventana-ayuda {
+        padding: 25px 20px;
+    }
+
+    .ventana-ayuda p {
+        font-size: 19px;
+    }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =========================================
+   CARTA I - REDISEÑO VISUAL
+   ESTILO TEATRO DE RECUERDOS
+========================================= */
+
+/* ESCENARIO CON PAPEL ANTIGUO */
+
+.escenario {
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.58),
+            transparent 75%
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #ecdfc9 0px,
+            #f5ebda 45px,
+            #e6d6bd 90px
+        );
+
+    border-left: 5px solid #b99460;
+    border-right: 5px solid #b99460;
+}
+
+/* CORTINAS MÁS PROFUNDAS */
+
+.cortina-superior,
+.cortina-izquierda,
+.cortina-derecha {
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #33040c 0px,
+            #72101d 17px,
+            #c23947 31px,
+            #e15b62 38px,
+            #8b1423 50px,
+            #3b050e 67px
+        );
+
+    filter: drop-shadow(
+        0 12px 14px rgba(35,5,8,.38)
+    );
+}
+
+/* CARTA CON ASPECTO DE PERGAMINO */
+
+.carta-perdon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.7),
+            rgba(245,229,204,.8)
+        ),
+        #f3e8d5;
+
+    border: 2px solid #c6a475;
+
+    box-shadow:
+        0 17px 45px rgba(67,39,26,.22),
+        inset 0 0 24px rgba(148,110,67,.08);
+}
+
+.carta-perdon h1 {
+    color: #852e3d;
+}
+
+.contenido-carta p {
+    color: #49362d;
+}
+
+/* GOTAS AZUL PASTEL */
+
+.gota {
+    background: linear-gradient(
+        125deg,
+        #ffffff,
+        #c5e9f8 40%,
+        #85b5d0 100%
+    );
+
+    border-color: #7794a8;
+
+    filter:
+        drop-shadow(0 4px 4px rgba(65,99,126,.25));
+}
+
+/* RATITA: NUEVA SILUETA */
+
+.ratita {
+    position: absolute;
+
+    right: 4%;
+    bottom: 75px;
+
+    width: clamp(105px, 17vw, 190px);
+    height: auto;
+
+    z-index: 7;
+
+    opacity: 1;
+
+    animation: respirarRatita 4s ease-in-out infinite;
+}
+
+.ratita svg {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    filter: drop-shadow(
+        0 8px 5px rgba(0,0,0,.14)
+    );
+}
+
+/* LLAVERO REAL DE TACONES */
+
+.llave-imagen {
+    position: relative;
+
+    width: 190px;
+    height: 165px;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline-offset: 5px;
+    background: transparent;
+
+    cursor: pointer;
+
+    animation: flotarLlave 3.5s ease-in-out infinite;
+}
+
+.imagen-llavero {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 9px 9px rgba(77,36,15,.28));
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+.llave-imagen:hover .imagen-llavero {
+    transform: scale(1.12) rotate(-5deg);
+
+    filter:
+        drop-shadow(0 12px 13px rgba(79,30,18,.4))
+        brightness(1.07);
+}
+
+/* LLAVE GUARDADA */
+
+.llave-imagen:disabled {
+    opacity: .35;
+    cursor: default;
+    animation: none;
+}
+
+/* AYUDA JUNTO A LA LLAVE */
+
+.llave-contenedor {
+    gap: 10px;
+}
+
+.boton-ayuda {
+    flex-shrink: 0;
+    background: linear-gradient(
+        145deg,
+        #fff8e8,
+        #e3ca98
+    );
+    box-shadow: 0 4px 15px rgba(92,59,30,.2);
+}
+
+/* MÁS ESPACIO PARA LOS ELEMENTOS */
+
+.zona-llave {
+    margin-top: 48px;
+    margin-bottom: 50px;
+}
+
+/* AJUSTES PARA CELULARES */
+
+@media (max-width: 650px) {
+    .ratita {
+        width: 105px;
+        right: 4%;
+        bottom: 55px;
+        transform: none;
+    }
+
+    .llave-imagen {
+        width: 155px;
+        height: 140px;
+    }
+
+    .carta-perdon {
+        border-radius: 10px;
+    }
+}
+/* =========================================
+   MEJORA VISUAL CARTA 1
+   más grande, teatral y llamativa
+========================================= */
+
+/* ESCENARIO MÁS GRANDE Y CON MÁS AIRE */
+.escenario {
+    padding: 170px 35px 210px;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.6),
+            transparent 72%
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #eee2cf 0px,
+            #f7eddc 55px,
+            #e7d7bd 110px
+        );
+}
+
+/* CARTA MÁS GRANDE */
+.carta-perdon {
+    width: min(860px, 100%);
+    padding: 40px clamp(22px, 4vw, 55px);
+    border-radius: 18px;
+    box-shadow:
+        0 22px 55px rgba(70,42,29,.22),
+        inset 0 0 24px rgba(150,114,72,.08);
+}
+
+.carta-perdon h1 {
+    font-size: clamp(44px, 5vw, 72px);
+    margin-bottom: 16px;
+}
+
+.contenido-carta {
+    max-height: min(58vh, 560px);
+}
+
+.contenido-carta p {
+    font-size: clamp(20px, 2.1vw, 25px);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+/* =========================================
+   GOTAS MÁS GRANDES Y LLAMATIVAS
+========================================= */
+
+.gotas {
+    top: 62px;
+    left: 12%;
+    width: 76%;
+    height: 150px;
+    justify-content: space-evenly;
+}
+
+.gota {
+    width: 50px;
+    height: 72px;
+    border-width: 3px;
+    filter:
+        drop-shadow(0 6px 8px rgba(72,105,130,.25));
+}
+
+.gota:nth-child(1) {
+    margin-top: 18px;
+}
+
+.gota:nth-child(2) {
+    margin-top: 42px;
+}
+
+.gota:nth-child(3) {
+    margin-top: 22px;
+}
+
+.gota:nth-child(4) {
+    margin-top: 40px;
+}
+
+/* =========================================
+   CORTINAS MÁS PARECIDAS A TELÓN
+========================================= */
+
+.cortina-superior {
+    height: 165px;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 59%,
+        93% 75%,
+        85% 59%,
+        76% 75%,
+        67% 59%,
+        58% 75%,
+        50% 59%,
+        42% 75%,
+        33% 59%,
+        24% 75%,
+        15% 59%,
+        7% 75%,
+        0 59%
+    );
+}
+
+.cortina-izquierda,
+.cortina-derecha {
+    width: clamp(55px, 12vw, 150px);
+}
+
+/* =========================================
+   RATITA MÁS GRANDE, ASOMÁNDOSE
+========================================= */
+
+.ratita {
+    position: absolute;
+    right: -10px;
+    bottom: 95px;
+    width: clamp(170px, 22vw, 280px);
+    z-index: 8;
+    animation: respirarRatita 4s ease-in-out infinite;
+}
+
+.ratita svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 10px 8px rgba(0,0,0,.18));
+}
+
+/* Para que parezca escondida */
+.ratita::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -12px;
+    width: 85px;
+    height: 100%;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #3c050d 0px,
+            #8d1624 18px,
+            #d24554 34px,
+            #6a0d19 50px,
+            #3d050d 68px
+        );
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+    box-shadow: inset 12px 0 18px rgba(0,0,0,.28);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* =========================================
+   AGUA MÁS GRANDE Y PROTAGÓNICA
+========================================= */
+
+.olas-inferiores {
+    bottom: -8px;
+    left: -3%;
+    width: 106%;
+    height: 185px;
+    z-index: 4;
+
+    background:
+        linear-gradient(
+            180deg,
+            #eef9ff 0%,
+            #c7e2ef 40%,
+            #97bfd5 72%,
+            #7daac1 100%
+        );
+
+    clip-path: polygon(
+        0 48%,
+        7% 38%,
+        14% 53%,
+        22% 35%,
+        30% 50%,
+        38% 32%,
+        46% 49%,
+        54% 34%,
+        62% 51%,
+        70% 36%,
+        78% 55%,
+        86% 40%,
+        94% 54%,
+        100% 46%,
+        100% 100%,
+        0 100%
+    );
+
+    box-shadow:
+        inset 0 12px 0 rgba(94,135,159,.75);
+}
+
+/* línea oscura encima del agua */
+.olas-inferiores::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 0;
+    width: 100%;
+    height: 26px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(53,73,85,.75),
+            rgba(53,73,85,.25)
+        );
+    clip-path: polygon(
+        0 60%,
+        8% 32%,
+        16% 61%,
+        24% 37%,
+        32% 58%,
+        40% 34%,
+        48% 61%,
+        56% 36%,
+        64% 56%,
+        72% 35%,
+        80% 61%,
+        88% 38%,
+        96% 55%,
+        100% 48%,
+        100% 100%,
+        0 100%
+    );
+    opacity: .85;
+}
+
+/* =========================================
+   ZONA DE LLAVE MÁS VISIBLE
+========================================= */
+
+.zona-llave {
+    margin-top: 55px;
+    margin-bottom: 55px;
+}
+
+.texto-llave {
+    font-size: 30px;
+    margin-bottom: 22px;
+}
+
+.estado-llave {
+    font-size: 22px;
+    margin-top: 16px;
+}
+
+/* Llavero más grande */
+.llave-imagen {
+    width: 220px;
+    height: 180px;
+}
+
+.imagen-llavero {
+    filter:
+        drop-shadow(0 12px 12px rgba(86,37,18,.28));
+}
+
+/* botón de ayuda más visible */
+.boton-ayuda {
+    width: 56px;
+    height: 56px;
+    font-size: 32px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+    .escenario {
+        padding: 135px 14px 165px;
+    }
+
+    .cortina-superior {
+        height: 120px;
+    }
+
+    .cortina-izquierda,
+    .cortina-derecha {
+        width: 50px;
+    }
+
+    .gotas {
+        top: 52px;
+        left: 10%;
+        width: 80%;
+        height: 110px;
+    }
+
+    .gota {
+        width: 36px;
+        height: 52px;
+    }
+
+    .carta-perdon {
+        width: 100%;
+        padding: 28px 18px;
+    }
+
+    .carta-perdon h1 {
+        font-size: 42px;
+    }
+
+    .contenido-carta p {
+        font-size: 19px;
+    }
+
+    .ratita {
+        width: 125px;
+        right: -6px;
+        bottom: 70px;
+    }
+
+    .ratita::before {
+        width: 45px;
+    }
+
+    .olas-inferiores {
+        height: 120px;
+    }
+
+    .llave-imagen {
+        width: 150px;
+        height: 120px;
+    }
+
+    .texto-llave {
+        font-size: 24px;
+    }
+
+    .estado-llave {
+        font-size: 18px;
+    }
+
+    .boton-ayuda {
+        width: 46px;
+        height: 46px;
+        font-size: 26px;
+    }
+}
+
+/* ==========================================
+   CARTA I — DECORACIONES ADICIONALES
+========================================== */
+
+/* Fondo con aspecto de cuento de papel */
+
+.escenario {
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(255,255,255,.65),
+            transparent 65%
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #ecddc6 0px,
+            #f8efdf 45px,
+            #ead8bd 90px
+        );
+
+    box-shadow:
+        inset 0 0 100px rgba(92,62,39,.15);
+}
+
+/* Contenedor de decoraciones */
+
+.decoracion-escenario {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Marco dorado interior */
+
+.marco-interior {
+    position: absolute;
+    inset: 24px;
+
+    border: 2px solid rgba(170,125,66,.35);
+
+    border-radius: 16px;
+
+    box-shadow:
+        inset 0 0 0 5px rgba(255,255,255,.12),
+        0 0 15px rgba(99,65,32,.08);
+}
+
+/* Cuerdas decorativas */
+
+.cuerda {
+    position: absolute;
+    top: 135px;
+
+    width: 5px;
+    height: 170px;
+
+    border-radius: 10px;
+
+    background: repeating-linear-gradient(
+        180deg,
+        #775025 0px,
+        #f1d590 5px,
+        #a6793b 10px
+    );
+
+    box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+}
+
+.cuerda-izquierda {
+    left: 8%;
+}
+
+.cuerda-derecha {
+    right: 8%;
+}
+
+/* Borlas al final de cada cuerda */
+
+.cuerda::after {
+    content: "";
+    position: absolute;
+
+    left: -9px;
+    bottom: -28px;
+
+    width: 23px;
+    height: 35px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background: repeating-linear-gradient(
+        90deg,
+        #a47632 0px,
+        #f5dda0 5px,
+        #94652a 9px
+    );
+
+    box-shadow: 0 4px 8px rgba(0,0,0,.15);
+}
+
+/* Estrellas de papel */
+
+.estrella {
+    position: absolute;
+    font-size: 25px;
+    color: #b18a51;
+
+    text-shadow: 0 0 8px rgba(240,195,106,.18);
+
+    animation: brilloEstrella 4s ease-in-out infinite;
+}
+
+.estrella-1 {
+    top: 29%;
+    left: 9%;
+}
+
+.estrella-2 {
+    top: 39%;
+    right: 9%;
+    animation-delay: 1s;
+}
+
+.estrella-3 {
+    top: 64%;
+    left: 7%;
+    animation-delay: 2s;
+}
+
+.estrella-4 {
+    top: 76%;
+    right: 10%;
+    animation-delay: 1.5s;
+}
+
+@keyframes brilloEstrella {
+    0%, 100% {
+        opacity: .35;
+        transform: scale(.9);
+    }
+
+    50% {
+        opacity: .85;
+        transform: scale(1.1);
+    }
+}
+
+/* Ondas ilustradas a los lados */
+
+.ondas-dibujadas {
+    position: absolute;
+
+    width: 230px;
+    height: 130px;
+
+    opacity: .28;
+
+    background:
+        repeating-radial-gradient(
+            ellipse at 50% 100%,
+            transparent 0px,
+            transparent 15px,
+            #a28b71 16px,
+            #a28b71 18px,
+            transparent 19px,
+            transparent 31px
+        );
+}
+
+.ondas-izquierda {
+    top: 40%;
+    left: -100px;
+}
+
+.ondas-derecha {
+    top: 51%;
+    right: -110px;
+    transform: rotate(180deg);
+}
+
+/* Flores decorativas de papel */
+
+.flor-papel {
+    position: absolute;
+    color: #bf8b73;
+
+    font-size: 35px;
+
+    opacity: .5;
+}
+
+.flor-1 {
+    left: 9%;
+    bottom: 215px;
+}
+
+.flor-2 {
+    right: 13%;
+    bottom: 245px;
+}
+
+/* Adornos dorados */
+
+.adorno {
+    position: absolute;
+
+    width: 85px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #b78b4a,
+        transparent
+    );
+}
+
+.adorno-superior {
+    top: 210px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.adorno-inferior {
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ==========================================
+   DETALLES DEL PERGAMINO
+========================================== */
+
+.carta-perdon {
+    position: relative;
+
+    border: 3px double #bf9b69;
+
+    box-shadow:
+        0 20px 45px rgba(65,43,30,.22),
+        0 0 0 8px rgba(255,248,232,.35),
+        inset 0 0 35px rgba(168,121,65,.09);
+}
+
+/* Esquinas internas del pergamino */
+
+.carta-perdon::before {
+    content: "✦";
+    position: absolute;
+
+    top: 12px;
+    left: 18px;
+
+    color: #b99459;
+    font-size: 19px;
+}
+
+.carta-perdon::after {
+    content: "✦";
+    position: absolute;
+
+    bottom: 12px;
+    right: 18px;
+
+    color: #b99459;
+    font-size: 19px;
+}
+
+/* ==========================================
+   AGUA CON MÁS PROFUNDIDAD
+========================================== */
+
+.olas-inferiores {
+    filter: drop-shadow(
+        0 -7px 5px rgba(57,100,126,.22)
+    );
+}
+
+.olas-inferiores::after {
+    content: "";
+    position: absolute;
+
+    inset: 35% 0 0;
+
+    background:
+        repeating-linear-gradient(
+            175deg,
+            transparent 0px,
+            transparent 20px,
+            rgba(255,255,255,.28) 22px,
+            transparent 28px
+        );
+
+    animation: reflejoAgua 7s ease-in-out infinite alternate;
+}
+
+@keyframes reflejoAgua {
+    from {
+        transform: translateX(-12px);
+        opacity: .4;
+    }
+
+    to {
+        transform: translateX(12px);
+        opacity: .8;
+    }
+}
+
+/* ==========================================
+   LLAVERO MÁS PROTAGÓNICO
+========================================== */
+
+.llave-imagen {
+    width: 225px;
+    height: 185px;
+}
+
+.imagen-llavero {
+    filter:
+        drop-shadow(0 12px 9px rgba(72,40,19,.3));
+}
+
+/* Animación suave del título */
+
+.carta-perdon h1 {
+    text-shadow: 0 3px 10px rgba(130,48,61,.12);
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media (max-width: 650px) {
+    .marco-interior {
+        inset: 12px;
+    }
+
+    .cuerda {
+        top: 110px;
+        height: 95px;
+    }
+
+    .cuerda-izquierda {
+        left: 7%;
+    }
+
+    .cuerda-derecha {
+        right: 7%;
+    }
+
+    .estrella {
+        font-size: 18px;
+    }
+
+    .flor-papel {
+        font-size: 23px;
+    }
+
+    .ondas-dibujadas {
+        width: 120px;
+        opacity: .2;
+    }
+
+    .llave-imagen {
+        width: 170px;
+        height: 145px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .estrella,
+    .olas-inferiores::after {
+        animation: none;
+    }
+}

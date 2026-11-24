@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Lo que quedó de nosotros</title>
+
+    <!-- CSS DE LA PÁGINA PRINCIPAL -->
+    <link rel="stylesheet" href="css/principal.css">
+</head>
+
+<body>
+
+    <!-- DECORACIÓN DE TELAS ROJAS -->
+    <div class="tela tela-izquierda"></div>
+    <div class="tela tela-derecha"></div>
+
+    <!-- LUCES AMARILLAS COLGANTES -->
+    <div class="guirnalda">
+
+        <div class="cable"></div>
+
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+        <span class="luz"></span>
+
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="pagina-principal">
+
+        <!-- TÍTULO -->
+        <header class="encabezado">
+
+            <p class="subtitulo">
+                Un pequeño recorrido por nuestra historia
+            </p>
+
+            <h1>Lo que quedó de nosotros</h1>
+
+            <div class="separador-dorado"></div>
+
+            <p class="instrucciones">
+                Seis cartas, seis momentos.
+                Encuentra las llaves para descubrir
+                lo que guarda cada una.
+            </p>
+
+        </header>
+
+        <!-- CONTENEDOR DE LAS SEIS CARTAS -->
+        <section class="contenedor-cartas"
+                 id="contenedorCartas">
+
+            <!-- CARTA 1: DISCULPAS -->
+            <button
+                class="sobre disponible"
+                id="carta1"
+                data-carta="1"
+                type="button">
+
+                <span class="solapa"></span>
+                <span class="papel-interior"></span>
+
+                <span class="sello sello-rojo">
+                    !
+                </span>
+
+                <span class="numero-carta">
+                    Carta I
+                </span>
+
+                <span class="estado-carta">
+                    Disponible
+                </span>
+
+            </button>
+
+            <!-- CARTA 2: NUESTRO INICIO -->
+            <button
+                class="sobre bloqueado"
+                id="carta2"
+                data-carta="2"
+                type="button"
+                disabled>
+
+                <span class="solapa"></span>
+                <span class="papel-interior"></span>
+
+                <span class="sello sello-reloj">
+                    ◷
+                </span>
+
+                <span class="numero-carta">
+                    Carta II
+                </span>
+
+                <span class="estado-carta">
+                    Bloqueada
+                </span>
+
+            </button>
+
+            <!-- CARTA 3: RECUERDOS -->
+            <button
+                class="sobre bloqueado"
+                id="carta3"
+                data-carta="3"
+                type="button"
+                disabled>
+
+                <span class="solapa"></span>
+                <span class="papel-interior"></span>
+
+                <span class="sello sello-fuego">
+                    🔥
+                </span>
+
+                <span class="numero-carta">
+                    Carta III
+                </span>
+
+                <span class="estado-carta">
+                    Bloqueada
+                </span>
+
+            </button>
+
+            <!-- CARTA 4: LO QUE VIVIMOS -->
+            <button
+                class="sobre bloqueado"
+                id="carta4"
+                data-carta="4"
+                type="button"
+                disabled>
+
+                <span class="solapa"></span>
+                <span class="papel-interior"></span>
+
+                <span class="sello sello-corazon">
+                    ♥
+                </span>
+
+                <span class="numero-carta">
+                    Carta IV
+                </span>
+
+                <span class="estado-carta">
+                    Bloqueada
+                </span>
+
+            </button>
+
+            <!-- CARTA 5: GRACIAS -->
+            <button
+                class="sobre bloqueado"
+                id="carta5"
+                data-carta="5"
+                type="button"
+                disabled>
+
+                <span class="solapa"></span>
+                <span class="papel-interior"></span>
+
+                <span class="sello sello-espada">
+                    ⚔
+                </span>
+
+                <span class="numero-carta">
+                    Carta V
+                </span>
+
+                <span class="estado-carta">
+                    Bloqueada
+                </span>
+
+            </button>
+
+            <!-- CARTA 6: DESPEDIDA -->
+            <button
+                class="sobre bloqueado carta-final"
+                id="carta6"
+                data-carta="6"
+                type="button"
+                disabled>
+
+                <span class="solapa"></span>
+                <span class="papel-interior"></span>
+
+                <span class="sello sello-rosa">
+                    🌹
+                </span>
+
+                <span class="numero-carta">
+                    Carta VI
+                </span>
+
+                <span class="estado-carta">
+                    Bloqueada
+                </span>
+
+            </button>
+
+        </section>
+
+        <!-- MENSAJES DEL SISTEMA -->
+        <p id="mensajeSistema"
+           class="mensaje-sistema"
+           aria-live="polite">
+
+            La primera carta está esperando por ti.
+
+        </p>
+
+        <!-- ESPACIO PARA EL INVENTARIO -->
+        <div class="espacio-inventario"></div>
+
+    </main>
+
+    <!-- INVENTARIO DE LLAVES -->
+    <aside class="panel-inventario"
+           id="panelInventario">
+
+        <div class="inventario-titulo">
+
+            <span>🗝</span>
+
+            <h2>Inventario</h2>
+
+            <span class="contador-llaves"
+                  id="contadorLlaves">
+                0 llaves
+            </span>
+
+        </div>
+
+        <p class="inventario-instruccion">
+            Arrastra una llave hasta el sobre
+            que quieras abrir.
+        </p>
+
+        <div class="lista-llaves"
+             id="listaLlaves">
+
+            <p class="inventario-vacio">
+                Todavía no has encontrado ninguna llave.
+            </p>
+
+        </div>
+
+    </aside>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/principal.js"></script>
+
+</body>
+</html>

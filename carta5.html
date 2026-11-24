@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Carta V — El día que faltaste</title>
+
+    <link rel="stylesheet" href="css/carta5.css">
+</head>
+
+<body>
+
+<main class="habitacion">
+
+    <!-- =====================================
+         BOTÓN PARA VOLVER
+    ====================================== -->
+
+    <button
+        id="botonVolver"
+        class="volver"
+        type="button">
+
+        ← Volver a las cartas
+
+    </button>
+
+
+    <!-- =====================================
+         VENTANA CON ATARDECER
+    ====================================== -->
+
+    <div class="ventana" aria-hidden="true">
+
+        <div class="cielo">
+
+            <div class="sol"></div>
+
+            <div class="nube nube1"></div>
+
+            <div class="nube nube2"></div>
+
+            <div class="montanas"></div>
+
+        </div>
+
+        <div class="marco-horizontal"></div>
+
+        <div class="marco-vertical"></div>
+
+    </div>
+
+
+    <!-- =====================================
+         ESTRELLAS DECORATIVAS
+    ====================================== -->
+
+    <div class="estrellas" aria-hidden="true">
+
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+
+    </div>
+
+
+    <!-- =====================================
+         TÍTULO DE LA CARTA
+    ====================================== -->
+
+    <header class="titulo-historia">
+
+        <p>CARTA V</p>
+
+        <h1>El día que faltaste</h1>
+
+        <span>
+            Hay silencios que también
+            cuentan historias...
+        </span>
+
+    </header>
+
+
+    <!-- =====================================
+         ESCRITORIO
+    ====================================== -->
+
+    <section class="escritorio">
+
+        <!-- RELOJ DETENIDO -->
+
+        <div class="reloj" aria-hidden="true">
+
+            <div class="manecilla hora"></div>
+
+            <div class="manecilla minuto"></div>
+
+            <div class="centro-reloj"></div>
+
+        </div>
+
+
+        <!-- TELÉFONO SIN MENSAJES -->
+
+        <div class="telefono" aria-hidden="true">
+
+            <div class="pantalla-telefono">
+
+                <span>
+                    Sin mensajes nuevos
+                </span>
+
+                <span class="corazon-apagado">
+                    ♡
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- MESA Y SOBRE -->
+
+        <div class="mesa">
+
+            <div class="sobre" id="sobreCarta">
+
+                <button
+                    id="abrirCarta"
+                    class="boton-sobre"
+                    type="button"
+                    aria-label="Abrir la quinta carta">
+
+                    <span class="sello">
+                        ♡
+                    </span>
+
+                    <span class="texto-sobre">
+                        Hay algo que quisiera decirte...
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         FRASE DEL ESCENARIO
+    ====================================== -->
+
+    <p class="frase-ambiente">
+
+        El sol volvió a salir.
+        Pero aquel día algo se sentía diferente.
+
+    </p>
+
+
+    <!-- =====================================
+         VENTANA DE LA CARTA
+    ====================================== -->
+
+    <div
+        class="modal-carta"
+        id="modalCarta"
+        hidden>
+
+        <article
+            class="pergamino"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloCarta">
+
+            <!-- CERRAR CARTA -->
+
+            <button
+                id="cerrarCarta"
+                class="cerrar-carta"
+                type="button"
+                aria-label="Cerrar carta">
+
+                ×
+
+            </button>
+
+
+            <!-- ENCABEZADO -->
+
+            <p class="etiqueta">
+                UN DÍA SIN TI
+            </p>
+
+            <h2 id="tituloCarta">
+                El silencio que dejaste
+            </h2>
+
+
+            <!-- =================================
+                 TEXTO COMPLETO DE LA CARTA
+            ================================== -->
+
+            <div class="contenido-pergamino">
+
+                <p>
+                    Mi amor...
+                </p>
+
+                <p>
+                    Hoy fue un día extraño.
+                    Un día que imaginé diferente,
+                    porque en algún momento llegué
+                    a pensar que, cuando nuestra
+                    relación terminara, finalmente
+                    encontraría aquella paz
+                    que tanto estaba buscando.
+                </p>
+
+                <p>
+                    Pero qué equivocado estaba
+                    al imaginar que todo sería
+                    tan sencillo.
+                </p>
+
+                <p>
+                    Hoy desperté y sentí que
+                    algo faltaba. No hubo un
+                    mensaje tuyo, ni un pequeño
+                    saludo, ni aquella oportunidad
+                    de escribirte un "te amo"
+                    como tantas veces lo hice.
+                </p>
+
+                <p>
+                    Extrañé aquellas pequeñas
+                    costumbres que se habían
+                    convertido en parte de
+                    mis días.
+                </p>
+
+                <p>
+                    Estar pendiente de ti
+                    por las mañanas, enviarte
+                    mensajitos de oruga,
+                    preguntarte cómo estabas,
+                    recordarte cuánto me importabas
+                    y cuánto te extrañaba.
+                </p>
+
+                <p>
+                    Extrañé llegar a la tarde
+                    pensando en que quizá
+                    podríamos llamarnos,
+                    contarnos lo sucedido
+                    durante el día o simplemente
+                    acompañarnos un ratito.
+                </p>
+
+                <p>
+                    Aquellos momentos que parecían
+                    tan normales ahora se sienten
+                    extraordinariamente lejanos.
+                </p>
+
+                <p>
+                    Y fue entonces cuando miré
+                    hacia mi ventana.
+                </p>
+
+                <p>
+                    El sol estaba ahí,
+                    tan radiante como siempre,
+                    iluminando todo a su paso.
+                </p>
+
+                <p>
+                    Por un instante sentí ganas
+                    de llorar, porque aquel brillo
+                    me recordó tantas cosas
+                    hermosas que pude vivir contigo.
+                </p>
+
+                <p>
+                    Recordé tus risas,
+                    nuestras conversaciones,
+                    aquellas llamadas interminables
+                    y todas las pequeñas cosas
+                    que llegué a conocer
+                    gracias a ti.
+                </p>
+
+                <p>
+                    Llegamos a compartir
+                    partes muy íntimas
+                    de nuestras vidas,
+                    sentimientos, secretos,
+                    inseguridades y sueños
+                    que no siempre resultan
+                    fáciles de contar.
+                </p>
+
+                <p>
+                    Por eso me duele pensar
+                    que nuestra historia
+                    haya terminado de aquella
+                    manera, entre palabras
+                    que jamás debieron
+                    decirse así.
+                </p>
+
+                <p>
+                    Porque, aunque en ocasiones
+                    yo mismo dudara de cómo seguir,
+                    en el fondo no quería
+                    que todo acabara
+                    de esa forma.
+                </p>
+
+                <p>
+                    Siempre escuché aquella frase:
+                    "Uno no sabe lo que tiene
+                    hasta que lo pierde".
+                </p>
+
+                <p>
+                    Hoy la comprendo de una
+                    manera distinta.
+                </p>
+
+                <p>
+                    No porque haya olvidado
+                    nuestras dificultades
+                    ni las razones que nos
+                    llevaron hasta aquí,
+                    sino porque ahora puedo
+                    sentir la ausencia
+                    de aquello que alguna vez
+                    llenó mis días de ilusión.
+                </p>
+
+                <p>
+                    Después de todos estos meses,
+                    hoy fue uno de esos primeros
+                    días en los que comprendí
+                    que nuestras rutinas
+                    ya no serían las mismas.
+                </p>
+
+                <p>
+                    Y al recordar nuestra historia,
+                    mis ojos vuelven a llenarse
+                    de lágrimas.
+                </p>
+
+                <p>
+                    Te extraño. Extraño lo bonito
+                    que vivimos y aquella versión
+                    de nosotros que alguna vez
+                    creyó que podía con todo.
+                </p>
+
+                <p>
+                    Sin embargo, también sé que
+                    extrañar a alguien no significa
+                    que debamos olvidar lo que dolió,
+                    ni que podamos regresar
+                    el tiempo con solo desearlo...
+                </p>
+
+
+
+            </div>
+
+
+            <!-- =================================
+                 BOTÓN PARA DESCUBRIR LA LLAVE
+            ================================== -->
+
+            <button
+                id="revelarLlave"
+                class="boton-revelar"
+                type="button">
+
+                Descubrir lo que queda...
+
+            </button>
+
+
+            <!-- =================================
+                 LLAVE ANTIGUA
+                 DESBLOQUEA CARTA VI
+            ================================== -->
+
+            <section
+                class="seccion-llave"
+                id="seccionLlave"
+                hidden>
+
+                <p class="introduccion-llave">
+
+                    Hasta las flores más hermosas
+                    pueden marchitarse.
+                    Pero eso no significa
+                    que nunca hayan florecido.
+                    y que no puedan renacer...
+
+                </p>
+
+
+                <!-- LLAVE OXIDADA CON ROSA -->
+
+                <button
+                    id="llaveSeis"
+                    class="llave-antigua"
+                    type="button"
+                    aria-label="Guardar llave de la Carta VI">
+
+                    <img
+                        src="assets/llave-antigua.png"
+                        alt="Llave oxidada con una rosa marchita"
+                        draggable="false">
+
+                </button>
+
+
+                <!-- ESTADO DE LA LLAVE -->
+
+                <p
+                    id="estadoLlave"
+                    aria-live="polite">
+
+                    Toca la llave para guardarla.
+
+                </p>
+
+            </section>
+
+        </article>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================
+     JAVASCRIPT DE LA CARTA V
+====================================== -->
+
+<script src="js/carta5.js"></script>
+
+</body>
+</html>

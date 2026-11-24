@@ -1,0 +1,739 @@
+
+/* ==========================================
+   CARTA IV — CUANDO EL TIEMPO NOS CAMBIÓ
+   ATARDECER, RELOJES Y CINE
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+:root {
+    --rosa: #e9899a;
+    --rosa-claro: #ffd0bf;
+    --rojo: #913c54;
+    --vino: #59283a;
+    --dorado: #e9b978;
+    --papel: #fff1de;
+    --tinta: #563943;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+
+    background: #793d57;
+    color: var(--tinta);
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* ==========================================
+   ESCENARIO PRINCIPAL
+========================================== */
+
+.pagina-tiempo {
+    position: relative;
+    isolation: isolate;
+
+    min-height: 100vh;
+    padding: 65px 20px 150px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(255,213,165,.85),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            #e58c9e 0%,
+            #f4a18f 32%,
+            #e87f79 55%,
+            #a64e69 80%,
+            #512744 100%
+        );
+}
+
+/* ==========================================
+   FONDO ILUSTRADO
+========================================== */
+
+.fondo-atardecer {
+    position: absolute;
+    inset: 0 0 auto;
+
+    width: 100%;
+
+    /* Mantener proporción de la ilustración */
+    aspect-ratio: 4 / 3;
+
+    z-index: -1;
+
+    background-image:
+        url("../assets/atardece-fondo.png");
+
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    pointer-events: none;
+}
+
+/* Textura suave sobre el fondo */
+
+.pagina-tiempo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 33px,
+            rgba(255,239,219,.025) 34px
+        );
+
+    opacity: .5;
+}
+
+/* ==========================================
+   BOTÓN VOLVER
+========================================== */
+
+.boton-volver {
+    position: relative;
+    z-index: 20;
+
+    display: block;
+    margin: 0 auto 18px;
+
+    padding: 10px 23px;
+
+    border: 2px solid #ffd39a;
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #693149,
+        #a44b67
+    );
+
+    color: #fff2e4;
+
+    font-family: inherit;
+    font-size: 20px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 20px rgba(67,22,44,.28);
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+}
+
+.boton-volver:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+}
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+.encabezado-tiempo {
+    position: relative;
+    z-index: 3;
+
+    width: min(720px, 95%);
+    margin: 0 auto 25px;
+
+    padding: 14px 25px;
+
+    text-align: center;
+
+    background: rgba(255,239,222,.82);
+
+    border: 2px solid rgba(137,67,73,.7);
+    border-radius: 13px;
+
+    box-shadow:
+        0 8px 25px rgba(83,35,53,.17),
+        inset 0 0 15px rgba(255,255,255,.35);
+
+    backdrop-filter: blur(5px);
+}
+
+.numero-carta {
+    font-size: 14px;
+    letter-spacing: 5px;
+    font-weight: 700;
+
+    color: #a24c62;
+}
+
+.encabezado-tiempo h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(45px, 5vw, 74px);
+    font-weight: normal;
+
+    color: #833c54;
+
+    margin: 5px 0;
+
+    text-shadow:
+        0 2px 8px rgba(255,255,255,.4);
+}
+
+.subtitulo {
+    font-size: clamp(18px, 2vw, 23px);
+    font-style: italic;
+
+    color: #82515b;
+}
+
+/* ==========================================
+   PERGAMINO PRINCIPAL
+========================================== */
+
+.carta-tiempo {
+    position: relative;
+    z-index: 4;
+
+    width: min(840px, 94%);
+    margin: 0 auto;
+
+    padding: 28px clamp(20px, 4vw, 50px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,248,234,.97),
+            rgba(250,222,209,.97)
+        );
+
+    border: 3px double #be8b77;
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 55px rgba(82,30,50,.29),
+        inset 0 0 35px rgba(194,105,115,.08);
+
+    animation: aparecerCarta 1s ease both;
+}
+
+/* Marco interior del pergamino */
+
+.carta-tiempo::before {
+    content: "";
+    position: absolute;
+
+    inset: 9px;
+
+    border: 1px solid rgba(168,100,101,.27);
+    border-radius: 11px;
+
+    pointer-events: none;
+}
+
+@keyframes aparecerCarta {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.adorno-superior,
+.adorno-inferior {
+    text-align: center;
+    color: #b87978;
+
+    font-size: 23px;
+    letter-spacing: 5px;
+}
+
+.adorno-superior {
+    margin-bottom: 13px;
+}
+
+.adorno-inferior {
+    margin-top: 17px;
+}
+
+.carta-tiempo h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(37px, 4vw, 58px);
+    font-weight: normal;
+
+    color: #8d4257;
+
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   CONTENIDO DEL TEXTO
+========================================== */
+
+.contenido-carta {
+    position: relative;
+
+    max-height: 520px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    padding: 8px 14px 8px 4px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #ca8c85 #f5dace;
+}
+
+.contenido-carta p {
+    font-size: clamp(19px, 2vw, 24px);
+    line-height: 1.57;
+
+    color: #5c4046;
+    margin-bottom: 17px;
+}
+
+.contenido-carta .frase-destacada {
+    color: #a14a64;
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+.contenido-carta .frase-final {
+    color: #8a3e55;
+    font-weight: 700;
+    font-style: italic;
+
+    font-size: clamp(22px, 2.3vw, 28px);
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+.firma {
+    font-family: "Great Vibes", cursive;
+    font-size: 39px !important;
+
+    color: #91485e !important;
+    text-align: right;
+
+    margin-top: 28px;
+}
+
+/* ==========================================
+   ZONA DEL CINE
+========================================== */
+
+.zona-cine {
+    position: relative;
+    z-index: 5;
+
+    width: min(650px, 90%);
+    min-height: 340px;
+
+    margin: 55px auto 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+/* Mensaje sobre la pantalla */
+
+.mensaje-cine {
+    position: relative;
+
+    margin-bottom: 20px;
+
+    color: #fff1e7;
+
+    font-size: clamp(19px, 2vw, 24px);
+    font-style: italic;
+    font-weight: 600;
+
+    text-shadow:
+        0 2px 7px rgba(76,25,49,.8);
+}
+
+/* ==========================================
+   LLAVE GLITCH
+========================================== */
+
+.llave-glitch {
+    position: relative;
+
+    width: 190px;
+    height: 240px;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    filter:
+        drop-shadow(0 0 15px rgba(250,56,144,.4));
+
+    animation:
+        flotarLlave 3s ease-in-out infinite;
+}
+
+.llave-glitch img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: contain;
+
+    transition:
+        transform .3s,
+        filter .3s;
+}
+
+.llave-glitch:hover img {
+    transform: scale(1.12);
+
+    filter:
+        drop-shadow(3px 0 0 rgba(0,230,255,.8))
+        drop-shadow(-3px 0 0 rgba(255,43,123,.8));
+}
+
+/* Movimiento de flotación */
+
+@keyframes flotarLlave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Pequeña interferencia digital */
+
+.llave-glitch::before {
+    content: "";
+    position: absolute;
+
+    inset: 12%;
+
+    background:
+        repeating-linear-gradient(
+            180deg,
+            transparent 0 7px,
+            rgba(0,255,255,.12) 8px 9px,
+            transparent 10px 17px
+        );
+
+    mix-blend-mode: screen;
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.llave-glitch:hover::before {
+    opacity: 1;
+
+    animation: interferencia .22s steps(2) infinite;
+}
+
+@keyframes interferencia {
+    0% {
+        transform: translateX(-4px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(-2px);
+    }
+}
+
+/* Estado de la llave */
+
+.estado-llave {
+    margin-top: 18px;
+
+    color: #fff0e4;
+    font-size: 21px;
+
+    text-shadow:
+        0 2px 7px rgba(68,22,45,.8);
+}
+
+/* Cuando la llave ya fue guardada */
+
+.llave-glitch:disabled {
+    opacity: .35;
+    cursor: default;
+    animation: none;
+}
+
+/* ==========================================
+   MENSAJE FINAL
+========================================== */
+
+.mensaje-final {
+    position: relative;
+    z-index: 5;
+
+    width: min(600px, 90%);
+    margin: 30px auto 0;
+
+    padding: 20px 25px;
+
+    text-align: center;
+
+    background: rgba(95,36,63,.76);
+
+    border: 2px solid #e6ad83;
+    border-radius: 15px;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 10px 28px rgba(54,19,38,.25);
+}
+
+.mensaje-final p {
+    color: #fff1e4;
+
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-style: italic;
+
+    line-height: 1.5;
+}
+
+.simbolo-final {
+    display: block;
+
+    margin-top: 10px;
+
+    color: #ffe1c0;
+    font-size: 35px;
+}
+
+/* ==========================================
+   PARTÍCULAS Y DESTELLOS
+========================================== */
+
+.particulas-tiempo {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.particulas-tiempo span {
+    position: absolute;
+
+    color: #ffe7ac;
+    font-size: 27px;
+
+    text-shadow:
+        0 0 10px rgba(255,199,117,.85);
+
+    animation: brilloTiempo 4s ease-in-out infinite;
+}
+
+.particulas-tiempo span:nth-child(1) {
+    top: 18%;
+    left: 9%;
+}
+
+.particulas-tiempo span:nth-child(2) {
+    top: 27%;
+    right: 13%;
+    animation-delay: 1s;
+}
+
+.particulas-tiempo span:nth-child(3) {
+    top: 46%;
+    left: 6%;
+    animation-delay: 2s;
+}
+
+.particulas-tiempo span:nth-child(4) {
+    top: 61%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+
+.particulas-tiempo span:nth-child(5) {
+    top: 80%;
+    left: 15%;
+    animation-delay: 2.5s;
+}
+
+.particulas-tiempo span:nth-child(6) {
+    bottom: 6%;
+    right: 18%;
+    animation-delay: .5s;
+}
+
+@keyframes brilloTiempo {
+    0%, 100% {
+        opacity: .3;
+        transform: scale(.75);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (max-width: 850px) {
+
+    .pagina-tiempo {
+        padding-top: 45px;
+    }
+
+    .fondo-atardecer {
+        aspect-ratio: 4 / 3;
+    }
+
+    .carta-tiempo {
+        width: 96%;
+    }
+
+    .zona-cine {
+        margin-top: 45px;
+        min-height: 300px;
+    }
+
+    .llave-glitch {
+        width: 155px;
+        height: 200px;
+    }
+
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media (max-width: 600px) {
+
+    .pagina-tiempo {
+        padding: 25px 12px 100px;
+    }
+
+    .boton-volver {
+        font-size: 17px;
+        padding: 9px 17px;
+    }
+
+    .encabezado-tiempo {
+        width: 100%;
+        padding: 13px;
+    }
+
+    .encabezado-tiempo h1 {
+        font-size: 46px;
+    }
+
+    .carta-tiempo {
+        width: 100%;
+        padding: 25px 18px;
+    }
+
+    .carta-tiempo h2 {
+        font-size: 40px;
+    }
+
+    .contenido-carta {
+        max-height: 56vh;
+        padding-right: 8px;
+    }
+
+    .contenido-carta p {
+        font-size: 19px;
+    }
+
+    .zona-cine {
+        width: 100%;
+        min-height: 250px;
+
+        margin-top: 35px;
+    }
+
+    .llave-glitch {
+        width: 130px;
+        height: 170px;
+    }
+
+    .mensaje-cine,
+    .estado-llave {
+        font-size: 18px;
+    }
+
+    .mensaje-final {
+        padding: 17px;
+    }
+
+    .mensaje-final p {
+        font-size: 20px;
+    }
+
+    .particulas-tiempo span {
+        font-size: 17px;
+    }
+
+}
+
+/* ==========================================
+   ACCESIBILIDAD
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}

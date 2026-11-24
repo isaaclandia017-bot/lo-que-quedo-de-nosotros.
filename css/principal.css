@@ -1,0 +1,963 @@
+
+/* ==========================================
+   LO QUE QUEDÓ DE NOSOTROS
+   PÁGINA PRINCIPAL - TEATRO DE CARTAS
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+:root {
+    --negro: #080607;
+    --rojo-oscuro: #39050e;
+    --rojo: #941b2b;
+    --rojo-claro: #d34b57;
+    --dorado: #c99c50;
+    --dorado-claro: #ffe6a2;
+    --blanco: #f6eedf;
+    --gris: #aaa09a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            #30201c 0%,
+            #150d0e 35%,
+            #080607 75%
+        );
+    color: var(--blanco);
+    font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* ==========================================
+   CORTINAS DE TERCIOPELO
+========================================== */
+
+.tela {
+    position: fixed;
+    top: 0;
+    width: clamp(90px, 18vw, 230px);
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #33030b 0%,
+            #8c1524 12%,
+            #bd3543 19%,
+            #5a0914 31%,
+            #a32332 43%,
+            #35030b 55%
+        );
+
+    box-shadow:
+        inset -20px 0 35px rgba(0,0,0,.6),
+        0 0 35px rgba(0,0,0,.5);
+
+    animation: aparecerCortina 1.6s ease-out both;
+}
+
+.tela-izquierda {
+    left: 0;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        85% 25%,
+        65% 48%,
+        55% 73%,
+        25% 100%,
+        0 100%
+    );
+    transform-origin: top left;
+}
+
+.tela-derecha {
+    right: 0;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        75% 100%,
+        45% 73%,
+        35% 48%,
+        15% 25%
+    );
+    transform-origin: top right;
+}
+
+/* SOMBRAS DE LOS PLIEGUES */
+
+.tela::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            rgba(0,0,0,.45) 24px,
+            rgba(255,190,190,.12) 38px,
+            transparent 55px
+        );
+}
+
+/* BORDE DORADO DE LA TELA */
+
+.tela::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #684414,
+        #ffe6a2,
+        #9b6b25
+    );
+
+    box-shadow: 0 0 10px rgba(255,206,112,.4);
+}
+
+.tela-izquierda::after {
+    right: 0;
+}
+
+.tela-derecha::after {
+    left: 0;
+}
+
+@keyframes aparecerCortina {
+    from {
+        opacity: 0;
+        scale: 1.12;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+/* ==========================================
+   GUIRNALDA DE LUCES DORADAS
+========================================== */
+
+.guirnalda {
+    position: absolute;
+    top: 45px;
+    left: 7%;
+    width: 86%;
+    height: 115px;
+    z-index: 4;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    pointer-events: none;
+}
+
+/* CABLE CURVADO */
+
+.cable {
+    position: absolute;
+    top: -35px;
+    left: 0;
+    width: 100%;
+    height: 95px;
+
+    border-bottom: 2px solid #927245;
+    border-radius: 0 0 50% 50%;
+}
+
+/* BOMBILLAS */
+
+.luz {
+    position: relative;
+    width: 13px;
+    height: 17px;
+    border-radius: 50% 50% 45% 45%;
+
+    background: radial-gradient(
+        circle at 35% 25%,
+        #ffffff,
+        #ffe69a 35%,
+        #f2ad36 90%
+    );
+
+    box-shadow:
+        0 0 8px #ffd46d,
+        0 0 20px rgba(255,193,65,.7),
+        0 0 35px rgba(255,193,65,.3);
+
+    animation: brillar 2.5s ease-in-out infinite alternate;
+}
+
+.luz::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 24px;
+    background: #a17a4b;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+}
+
+/* DIFERENTES ALTURAS */
+
+.luz:nth-child(2),
+.luz:nth-child(13) {
+    margin-top: 7px;
+}
+
+.luz:nth-child(3),
+.luz:nth-child(12) {
+    margin-top: 23px;
+}
+
+.luz:nth-child(4),
+.luz:nth-child(11) {
+    margin-top: 37px;
+}
+
+.luz:nth-child(5),
+.luz:nth-child(10) {
+    margin-top: 48px;
+}
+
+.luz:nth-child(6),
+.luz:nth-child(9) {
+    margin-top: 53px;
+}
+
+.luz:nth-child(7),
+.luz:nth-child(8) {
+    margin-top: 57px;
+}
+
+/* BRILLOS NO SINCRONIZADOS */
+
+.luz:nth-child(3n) {
+    animation-delay: .7s;
+}
+
+.luz:nth-child(4n) {
+    animation-delay: 1.3s;
+}
+
+.luz:nth-child(5n) {
+    animation-delay: .35s;
+}
+
+@keyframes brillar {
+    0% {
+        opacity: .55;
+        filter: brightness(.8);
+    }
+    100% {
+        opacity: 1;
+        filter: brightness(1.3);
+    }
+}
+
+/* ==========================================
+   CONTENIDO PRINCIPAL
+========================================== */
+
+.pagina-principal {
+    position: relative;
+    z-index: 3;
+
+    width: min(1050px, 86%);
+    margin: 0 auto;
+
+    padding: 180px 20px 210px;
+
+    animation: entradaPagina 1.2s ease both;
+}
+
+@keyframes entradaPagina {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.subtitulo {
+    font-family: "Great Vibes", cursive;
+    color: var(--dorado-claro);
+    font-size: clamp(24px, 3vw, 36px);
+    margin-bottom: 10px;
+}
+
+.encabezado h1 {
+    font-size: clamp(36px, 5vw, 65px);
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.8),
+        0 0 25px rgba(255,214,140,.12);
+}
+
+.separador-dorado {
+    width: 260px;
+    max-width: 75%;
+    height: 3px;
+    margin: 24px auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d9b46a,
+        #fff0b2,
+        #d9b46a,
+        transparent
+    );
+
+    box-shadow: 0 0 12px rgba(255,220,145,.3);
+}
+
+.instrucciones {
+    max-width: 550px;
+    margin: auto;
+    color: #c9bcb1;
+    font-size: 21px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   CUADRÍCULA DE SOBRES
+========================================== */
+
+.contenedor-cartas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 65px 40px;
+    justify-items: center;
+    align-items: center;
+
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   SOBRES
+========================================== */
+
+.sobre {
+    position: relative;
+
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 1.55;
+
+    border: 1px solid #a99476;
+    border-radius: 7px;
+
+    background: linear-gradient(
+        145deg,
+        #fff3dc,
+        #dfcdb1 60%,
+        #af977c
+    );
+
+    box-shadow:
+        0 15px 28px rgba(0,0,0,.5),
+        inset 0 2px 5px rgba(255,255,255,.5);
+
+    cursor: pointer;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease,
+        box-shadow .35s ease;
+
+    animation: flotarSobre 5s ease-in-out infinite;
+}
+
+/* BORDE DECORATIVO */
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid rgba(126,91,50,.25);
+    border-radius: 3px;
+    pointer-events: none;
+}
+
+/* SOLAPA TRIANGULAR */
+
+.solapa {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        160deg,
+        #fff7e8,
+        #cfb99a
+    );
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 62%
+    );
+
+    filter: drop-shadow(0 3px 3px rgba(0,0,0,.2));
+
+    transition: transform .7s ease;
+    transform-origin: top center;
+}
+
+/* PAPEL INTERIOR */
+
+.papel-interior {
+    position: absolute;
+    top: 12%;
+    left: 10%;
+
+    width: 80%;
+    height: 65%;
+
+    border-radius: 3px;
+
+    background: #fff8e9;
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: all .6s ease;
+}
+
+/* SELLOS */
+
+.sello {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: bold;
+
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,.25),
+        0 5px 12px rgba(0,0,0,.35);
+}
+
+.sello-rojo {
+    background: radial-gradient(circle, #df5058, #800d1d);
+}
+
+.sello-reloj {
+    background: radial-gradient(circle, #a6d9ed, #376982);
+}
+
+.sello-fuego {
+    background: radial-gradient(circle, #ffb46e, #bd4118);
+}
+
+.sello-corazon {
+    background: radial-gradient(circle, #e94d66, #8a102a);
+}
+
+.sello-espada {
+    background: radial-gradient(circle, #a8a0c6, #423956);
+}
+
+.sello-rosa {
+    background: radial-gradient(circle, #d74a63, #750e29);
+}
+
+/* NÚMERO */
+
+.numero-carta {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #d9c7a7;
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+/* ESTADO */
+
+.estado-carta {
+    position: absolute;
+    bottom: -29px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 15px;
+    color: #d8bf8d;
+    white-space: nowrap;
+}
+
+/* ANIMACIÓN DE FLOTACIÓN */
+
+@keyframes flotarSobre {
+    0%, 100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -7px;
+    }
+}
+
+/* EFECTO HOVER */
+
+.sobre:not(:disabled):hover {
+    transform: scale(1.07);
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.65),
+        0 0 25px rgba(255,220,145,.18);
+}
+
+/* ==========================================
+   ESTADOS DE LAS CARTAS
+========================================== */
+
+/* BLOQUEADA */
+
+.sobre.bloqueado {
+    filter: grayscale(1) brightness(.24);
+    opacity: .8;
+    cursor: not-allowed;
+    animation: none;
+}
+
+/* DISPONIBLE */
+
+.sobre.disponible {
+    filter: none;
+}
+
+/* SOBRE ABIERTO */
+
+.sobre.abierto .solapa {
+    transform: rotateX(170deg);
+}
+
+.sobre.abierto .papel-interior {
+    opacity: 1;
+    transform: translateY(-30px);
+}
+
+.sobre.abierto .sello {
+    opacity: .25;
+}
+
+/* DESBLOQUEO */
+
+.sobre.desbloqueando {
+    animation: desbloquear .9s ease both;
+}
+
+@keyframes desbloquear {
+    0% {
+        filter: grayscale(1) brightness(.25);
+        transform: scale(.9);
+    }
+    50% {
+        filter: grayscale(0) brightness(1.5);
+        transform: scale(1.12);
+    }
+    100% {
+        filter: none;
+        transform: scale(1);
+    }
+}
+
+/* MODO FINAL */
+
+.sobre.gris-final {
+    filter: grayscale(1) brightness(.5);
+    opacity: .55;
+    animation: none;
+}
+
+/* ==========================================
+   MENSAJES
+========================================== */
+
+.mensaje-sistema {
+    margin: 65px auto 20px;
+    text-align: center;
+    font-size: 19px;
+    color: #e5c58c;
+    font-style: italic;
+    min-height: 28px;
+}
+
+/* ==========================================
+   INVENTARIO INFERIOR
+========================================== */
+
+.panel-inventario {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    width: min(850px, 94%);
+    padding: 15px 22px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #30231b,
+            #1b1411 55%,
+            #33251b
+        );
+
+    border: 2px solid #9c733e;
+    border-bottom: none;
+    border-radius: 18px 18px 0 0;
+
+    box-shadow:
+        0 -8px 35px rgba(0,0,0,.7),
+        inset 0 1px 8px rgba(255,210,130,.12);
+}
+
+.inventario-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.inventario-titulo h2 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #f2d9a1;
+}
+
+.contador-llaves {
+    margin-left: auto;
+    color: #e2ba72;
+    font-size: 15px;
+}
+
+.inventario-instruccion {
+    font-size: 15px;
+    color: #c2ac93;
+    margin: 5px 0 12px;
+}
+
+.lista-llaves {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    min-height: 55px;
+    padding: 7px 12px;
+
+    border: 1px dashed rgba(237,196,119,.28);
+    border-radius: 9px;
+}
+
+.inventario-vacio {
+    color: #9f8c78;
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* ESPACIO PARA NO TAPAR CONTENIDO */
+
+.espacio-inventario {
+    height: 110px;
+}
+
+/* ==========================================
+   LLAVES (PARA EL JAVASCRIPT)
+========================================== */
+
+.llave {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        145deg,
+        #ffe8a1,
+        #bf8b2d
+    );
+
+    border: 1px solid #fff0b6;
+    border-radius: 8px;
+
+    color: #422c0e;
+    font-size: 26px;
+
+    cursor: grab;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,.4);
+
+    transition: transform .2s ease;
+}
+
+.llave:hover {
+    transform: scale(1.12);
+}
+
+.llave:active {
+    cursor: grabbing;
+}
+
+/* ==========================================
+   PANTALLAS PEQUEÑAS
+========================================== */
+
+@media (max-width: 850px) {
+    .contenedor-cartas {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px 25px;
+    }
+
+    .pagina-principal {
+        width: 88%;
+    }
+
+    .tela {
+        width: 14vw;
+    }
+}
+
+@media (max-width: 520px) {
+    .pagina-principal {
+        width: 100%;
+        padding: 150px 35px 210px;
+    }
+
+    .contenedor-cartas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 55px 18px;
+    }
+
+    .sobre {
+        max-width: 170px;
+    }
+
+    .sello {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    .tela {
+        width: 65px;
+        opacity: .65;
+    }
+
+    .guirnalda {
+        left: 4%;
+        width: 92%;
+    }
+
+    .panel-inventario {
+        width: 100%;
+        border-radius: 15px 15px 0 0;
+        padding: 12px 15px;
+    }
+
+    .encabezado h1 {
+        font-size: 37px;
+    }
+
+    .instrucciones {
+        font-size: 17px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ==========================================
+   FINAL — RECUERDOS EN BLANCO Y NEGRO
+========================================== */
+
+/* Cartas cerradas al abrir la sexta */
+
+.sobre.cerrado-definitivo {
+    filter: grayscale(100%) brightness(0.65);
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    pointer-events: auto;
+
+    transition:
+        filter 1.5s ease,
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+/* No recuperar el color al pasar el mouse */
+
+.sobre.cerrado-definitivo:hover {
+    filter: grayscale(100%) brightness(0.65);
+
+    opacity: 0.65;
+
+    transform: none;
+}
+
+/* Sello y decoraciones sin color */
+
+.sobre.cerrado-definitivo img,
+.sobre.cerrado-definitivo .sello,
+.sobre.cerrado-definitivo .estado-carta {
+    filter: grayscale(100%);
+}
+
+/* Estado de la carta */
+
+.sobre.cerrado-definitivo .estado-carta {
+    color: #bdbdbd;
+}
+
+/* La sexta carta mantiene sus colores */
+
+.sobre[data-carta="6"]:not(.bloqueado) {
+    filter: none;
+    opacity: 1;
+}
+
+/* Animación de despedida */
+
+@keyframes recuerdosApagandose {
+
+    0% {
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+
+    100% {
+        filter: grayscale(100%) brightness(.65);
+        opacity: .65;
+    }
+}
+
+.sobre.cerrado-definitivo {
+    animation:
+        recuerdosApagandose 1.5s ease both;
+}
+
+/* ==========================================
+   FINAL DE LA HISTORIA
+   CARTAS CERRADAS EN BLANCO Y NEGRO
+========================================== */
+
+.sobre.cerrado-definitivo {
+    filter: grayscale(100%) brightness(0.68) !important;
+
+    opacity: 0.65 !important;
+
+    cursor: not-allowed !important;
+
+    transition:
+        filter 1.5s ease,
+        opacity 1.5s ease;
+}
+
+/* Mantener blanco y negro al pasar el mouse */
+
+.sobre.cerrado-definitivo:hover {
+    filter: grayscale(100%) brightness(0.68) !important;
+    opacity: 0.65 !important;
+    transform: none !important;
+}
+
+/* Los sobres anteriores pierden su color */
+
+.sobre.cerrado-definitivo img,
+.sobre.cerrado-definitivo .sello {
+    filter: grayscale(100%);
+}
+
+/* Texto de carta cerrada */
+
+.sobre.cerrado-definitivo .estado-carta {
+    color: #bdbdbd !important;
+}
+
+/* Carta VI conserva sus colores */
+
+.sobre[data-carta="6"].disponible {
+    filter: none;
+    opacity: 1;
+}
+
+/* Animación final */
+
+@keyframes apagarRecuerdos {
+
+    from {
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+
+    to {
+        filter: grayscale(100%) brightness(0.68);
+        opacity: 0.65;
+    }
+}
+
+.sobre.cerrado-definitivo {
+    animation: apagarRecuerdos 1.5s ease both;
+}

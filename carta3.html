@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Carta III — Planes</title>
+
+    <link rel="stylesheet" href="css/carta3.css">
+</head>
+
+<body>
+
+<main class="pagina-planes">
+
+    <!-- =====================================
+         FONDO ORIGINAL DE LA CARTA
+    ====================================== -->
+
+    <div
+        class="fondo-planes"
+        aria-hidden="true">
+    </div>
+
+
+    <!-- =====================================
+         BOTÓN PARA REGRESAR
+    ====================================== -->
+
+    <button
+        class="boton-volver"
+        id="botonVolver"
+        type="button">
+
+        ← Volver a las cartas
+
+    </button>
+
+
+    <!-- =====================================
+         ENCABEZADO
+    ====================================== -->
+
+    <header class="encabezado-planes">
+
+        <p class="numero-carta">
+            CARTA III
+        </p>
+
+        <h1>Planes</h1>
+
+        <p class="subtitulo-planes">
+            Entre recuerdos, promesas
+            y caminos que cambiaron.
+        </p>
+
+    </header>
+
+
+    <!-- =====================================
+         CONTENIDO PRINCIPAL
+    ====================================== -->
+
+    <div class="contenido-planes">
+
+
+        <!-- =================================
+             LADO IZQUIERDO
+             JAM CAM Y FOTOGRAFÍAS
+        ================================== -->
+
+        <section class="columna-recuerdos">
+
+            <!-- RECUERDOS DEL JAM CAM -->
+
+            <article class="bloque-texto">
+
+                <h2>
+                    Cuatro días que recordaré
+                </h2>
+
+                <p>
+                    El tiempo fue pasando,
+                    y con él seguimos viviendo
+                    muchísimas cosas.
+                </p>
+
+                <p>
+                    Aún recuerdo aquel Jam Cam,
+                    que aunque tuvo sus momentos
+                    medio ratonescos, JSJSJS,
+                    para mí fue una experiencia
+                    muy especial.
+                </p>
+
+                <p>
+                    Pude compartir contigo
+                    cuatro días enteros,
+                    y eso es algo que siempre
+                    voy a valorar muchísimo.
+                </p>
+
+                <p>
+                    No fue solamente el lugar
+                    o el evento.
+                    Fue la oportunidad de
+                    verte más, compartir más
+                    tiempo contigo y llevarme
+                    recuerdos que todavía
+                    guardo con cariño.
+                </p>
+
+            </article>
+
+
+            <!-- ==============================
+                 CINTA DE CUATRO FOTOGRAFÍAS
+            =============================== -->
+
+            <section class="seccion-fotografias">
+
+                <h3>
+                    Una pequeña cinta de recuerdos
+                </h3>
+
+                <p class="instruccion-fotos">
+                    Arrastra la cinta o utiliza
+                    las flechas para descubrir
+                    las fotografías.
+                </p>
+
+
+                <div class="marco-cinta">
+
+                    <div
+                        class="cinta-fotografica"
+                        id="cintaFotografica"
+                        tabindex="0"
+                        aria-label="Cinta de cuatro fotografías">
+
+                        <!-- FOTO 1 -->
+
+                        <figure class="fotograma">
+
+                            <div class="perforaciones"></div>
+
+                            <img
+                                src="assets/jamcam1.png"
+                                alt="Primer recuerdo del Jam Cam"
+                                draggable="false">
+
+                            <figcaption>
+                                Recuerdo I
+                            </figcaption>
+
+                        </figure>
+
+
+                        <!-- FOTO 2 -->
+
+                        <figure class="fotograma">
+
+                            <div class="perforaciones"></div>
+
+                            <img
+                                src="assets/jamcam2.png"
+                                alt="Segundo recuerdo del Jam Cam"
+                                draggable="false">
+
+                            <figcaption>
+                                Recuerdo II
+                            </figcaption>
+
+                        </figure>
+
+
+                        <!-- FOTO 3 -->
+
+                        <figure class="fotograma">
+
+                            <div class="perforaciones"></div>
+
+                            <img
+                                src="assets/jamcam3.png"
+                                alt="Tercer recuerdo del Jam Cam"
+                                draggable="false">
+
+                            <figcaption>
+                                Recuerdo III
+                            </figcaption>
+
+                        </figure>
+
+
+                        <!-- FOTO 4 -->
+
+                        <figure class="fotograma">
+
+                            <div class="perforaciones"></div>
+
+                            <img
+                                src="assets/jamcam4.png"
+                                alt="Cuarto recuerdo del Jam Cam"
+                                draggable="false">
+
+                            <figcaption>
+                                Recuerdo IV
+                            </figcaption>
+
+                        </figure>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTROLES DE LA CINTA -->
+
+                <div class="controles-cinta">
+
+                    <button
+                        id="fotoAnterior"
+                        type="button"
+                        aria-label="Fotografía anterior">
+
+                        ❮
+
+                    </button>
+
+                    <span id="contadorFotografias">
+                        Recuerdo 1 de 4
+                    </span>
+
+                    <button
+                        id="fotoSiguiente"
+                        type="button"
+                        aria-label="Siguiente fotografía">
+
+                        ❯
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =================================
+             CENTRO
+             FLOR Y BOTÓN DE JUGAR
+        ================================== -->
+
+        <section class="columna-flor">
+
+            <div class="flor-interactiva">
+
+                <!-- BRILLO DECORATIVO -->
+
+                <div
+                    class="brillo-flor"
+                    aria-hidden="true">
+                </div>
+
+
+                <!-- BOTÓN DE JUGAR -->
+
+                <button
+                    class="boton-jugar"
+                    id="botonJugar"
+                    type="button">
+
+                    <span class="icono-juego">
+                        ✦
+                    </span>
+
+                    <span>Jugar</span>
+
+                </button>
+
+            </div>
+
+
+            <p class="mensaje-flor">
+                Algunas promesas esconden
+                pequeños tesoros...
+            </p>
+
+            <p class="instruccion-juego">
+                Presiona el centro de la flor
+                para comenzar un pequeño juego.
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             LADO DERECHO
+             CLASES, QUICENTRO Y CAJITA
+        ================================== -->
+
+        <section class="columna-reflexion">
+
+            <article class="bloque-texto">
+
+                <h2>
+                    Entre juegos y nervios
+                </h2>
+
+                <p>
+                    Las cosas empezaron a complicarse
+                    cuando ambos entramos a clases.
+                    Poco a poco, nuestros caminos
+                    comenzaron a llenarse de piedras:
+                    los horarios, el cansancio,
+                    los silencios y esos momentos
+                    en los que coincidir ya no
+                    resultaba tan sencillo.
+                </p>
+
+                <p>
+                    Pero aun así, todavía existían
+                    momentos capaces de hacerme sonreír.
+                    Incluso entre las dificultades,
+                    seguíamos construyendo recuerdos
+                    que para mí significaban mucho.
+                </p>
+
+                <p>
+                    Me acuerdo cuando fuimos al
+                    arcade del Quicentro Norte,
+                    JSJSJS.
+                </p>
+
+                <p>
+                    Estaba full nervioso,
+                    especialmente porque iba
+                    a conocer a tu papá.
+                    Y más nervioso me puse
+                    cuando lo vi y parecía que
+                    me sacaba como cuatro cabezas,
+                    SDAJKDJKJ.
+                </p>
+
+                <p>
+                    También atesoro cuando fuimos
+                    a comer con tu mamá.
+                    Puede parecer algo muy sencillo,
+                    pero para mí significaba mucho.
+                </p>
+
+                <p>
+                    Incluso esas cosas tan normales
+                    me hacían sentir que podía
+                    formar un poquito más
+                    parte de tu vida.
+                </p>
+
+                <p>
+                    Creo que aquella salida al
+                    Quicentro fue una de las
+                    ocasiones en las que más
+                    cosas hicimos juntos.
+                </p>
+
+                <p>
+                    Jugamos, reímos y compartimos
+                    momentos que todavía
+                    recuerdo con cariño.
+                </p>
+
+                <p>
+                    También recuerdo que me sentía
+                    mal porque aquella cajita
+                    con la que quería pedirte
+                    que fueras mi novia
+                    todavía estaba vacía,
+                    JAJAJA.
+                </p>
+
+                <p>
+                    Y aun así te dije:
+                    "Porfa, espérame un tiempito
+                    más, todavía te debo
+                    dar la caja..."
+                </p>
+
+                <p class="frase-final">
+                    Aquella cajita representaba
+                    una ilusión muy grande para mí.
+                    No era simplemente un regalo,
+                    sino las ganas de hacer especial
+                    aquel momento contigo.
+                </p>
+
+            </article>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================
+         DECORACIONES INFERIORES
+    ====================================== -->
+
+    <div
+        class="decoracion-kitty"
+        aria-hidden="true">
+    </div>
+
+    <div
+        class="decoracion-tren"
+        aria-hidden="true">
+    </div>
+
+    <div
+        class="decoracion-carpa"
+        aria-hidden="true">
+    </div>
+
+
+    <!-- =====================================
+         MINIJUEGO
+         LA CAJITA DE LOS RECUERDOS
+    ====================================== -->
+
+    <div
+        class="modal-juego"
+        id="modalJuego"
+        hidden>
+
+        <section
+            class="ventana-juego"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloJuego">
+
+            <!-- CERRAR JUEGO -->
+
+            <button
+                id="cerrarJuego"
+                class="cerrar-juego"
+                type="button"
+                aria-label="Cerrar minijuego">
+
+                ×
+
+            </button>
+
+
+            <!-- TÍTULO -->
+
+            <p class="etiqueta-juego">
+                UN PEQUEÑO JUEGO
+            </p>
+
+            <h2 id="tituloJuego">
+                La cajita de los recuerdos
+            </h2>
+
+            <p class="historia-juego">
+                Entre todos los planes
+                que alguna vez imaginamos,
+                hay una pequeña cajita
+                que guarda un secreto.
+            </p>
+
+            <p class="pista-juego">
+                Pista: no siempre el tesoro
+                más valioso es el que
+                más brilla.
+            </p>
+
+
+            <!-- TRES CAJITAS -->
+
+            <div
+                class="contenedor-cajitas"
+                id="contenedorCajitas">
+
+                <!-- CAJITA I -->
+
+                <button
+                    class="cajita"
+                    data-cajita="1"
+                    type="button">
+
+                    <span class="regalo">
+                        🎁
+                    </span>
+
+                    <span class="nombre-cajita">
+                        Cajita I
+                    </span>
+
+                </button>
+
+
+                <!-- CAJITA II -->
+
+                <button
+                    class="cajita"
+                    data-cajita="2"
+                    type="button">
+
+                    <span class="regalo">
+                        🎁
+                    </span>
+
+                    <span class="nombre-cajita">
+                        Cajita II
+                    </span>
+
+                </button>
+
+
+                <!-- CAJITA III -->
+
+                <button
+                    class="cajita"
+                    data-cajita="3"
+                    type="button">
+
+                    <span class="regalo">
+                        🎁
+                    </span>
+
+                    <span class="nombre-cajita">
+                        Cajita III
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADO -->
+
+            <p
+                class="resultado-juego"
+                id="resultadoJuego"
+                aria-live="polite">
+
+                Elige una cajita para comenzar.
+
+            </p>
+
+
+            <!-- =================================
+                 PREMIO: LLAVE DE LA ROSA
+            ================================== -->
+
+            <div
+                class="premio-juego"
+                id="premioJuego"
+                hidden>
+
+                <h3>
+                    ¡Encontraste el tesoro!
+                </h3>
+
+                <p>
+                    Algunas cosas no necesitan
+                    ser perfectas para tener
+                    un significado especial.
+                </p>
+
+                <p>
+                    Has conseguido la llave
+                    de la siguiente carta.
+                </p>
+
+
+                <!-- LLAVE NÚMERO 4 -->
+
+                <button
+                    class="llave-premio"
+                    id="llaveCuatro"
+                    type="button"
+                    aria-label="Guardar llave de la carta cuatro">
+
+                    <img
+                        src="assets/llave-rosa.png"
+                        alt="Llave dorada con una rosa roja"
+                        draggable="false">
+
+                </button>
+
+
+                <p
+                    id="estadoLlave"
+                    class="estado-llave"
+                    aria-live="polite">
+
+                    Toca la llave para guardarla.
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================
+     MÚSICA EXCLUSIVA DEL MINIJUEGO
+====================================== -->
+
+<audio
+    id="musicaJuego"
+    src="assets/Heartache.mp3"
+    preload="auto"
+    loop>
+</audio>
+
+
+<!-- =====================================
+     JAVASCRIPT DE LA CARTA III
+====================================== -->
+
+<script src="js/carta3.js"></script>
+
+</body>
+</html>

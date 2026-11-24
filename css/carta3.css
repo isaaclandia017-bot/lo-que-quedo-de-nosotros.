@@ -1,0 +1,1131 @@
+
+/* ==========================================
+   CARTA III - PLANES
+   TEATRO DE RECUERDOS
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+:root {
+    --papel: #fff4e5;
+    --papel-oscuro: #e9d3b7;
+    --tinta: #33231e;
+    --rojo: #a52b3d;
+    --rojo-oscuro: #681d2d;
+    --dorado: #b18a55;
+    --sombra: rgba(52, 28, 24, .25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #e8d6c0;
+    color: var(--tinta);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   FONDO ILUSTRADO
+========================================== */
+
+.pagina-planes {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    padding: 115px 30px 130px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(255,255,255,.65),
+            transparent 60%
+        ),
+        linear-gradient(
+            180deg,
+            #fff6e9,
+            #ead6bf 65%,
+            #d4bda5
+        );
+}
+
+/* Imagen original de la carta */
+
+.fondo-planes {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 100%;
+    z-index: -1;
+
+    background-image:
+        url("../assets/fondo-carta3.png");
+
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+
+    pointer-events: none;
+}
+
+/* Textura de papel */
+
+.pagina-planes::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 32px,
+            rgba(94,63,43,.025) 33px
+        );
+
+    box-shadow:
+        inset 0 0 90px rgba(95,55,32,.13);
+}
+
+/* ==========================================
+   BOTÓN PARA VOLVER
+========================================== */
+
+.boton-volver {
+    position: relative;
+    z-index: 10;
+
+    display: block;
+    margin: 0 auto 25px;
+
+    padding: 10px 24px;
+
+    border: 2px solid var(--tinta);
+    border-radius: 30px;
+
+    background: rgba(255,248,235,.94);
+    color: var(--tinta);
+
+    font-family: inherit;
+    font-size: 19px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px var(--sombra);
+
+    transition:
+        transform .25s,
+        background .25s;
+}
+
+.boton-volver:hover {
+    transform: translateY(-3px);
+    background: white;
+}
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+.encabezado-planes {
+    position: relative;
+    z-index: 2;
+
+    width: min(650px, 95%);
+    margin: 0 auto 48px;
+
+    text-align: center;
+
+    padding: 22px 30px;
+
+    background: rgba(255,248,235,.91);
+
+    border: 2px solid rgba(83,50,39,.7);
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 25px rgba(54,32,25,.13);
+}
+
+.numero-carta {
+    letter-spacing: 5px;
+    color: var(--rojo);
+    font-size: 15px;
+}
+
+.encabezado-planes h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(55px, 6vw, 85px);
+    font-weight: normal;
+
+    color: var(--rojo-oscuro);
+}
+
+.subtitulo-planes {
+    font-size: 21px;
+    font-style: italic;
+    color: #785d50;
+}
+
+/* ==========================================
+   DISTRIBUCIÓN DE LAS TRES COLUMNAS
+========================================== */
+
+.contenido-planes {
+    position: relative;
+    z-index: 2;
+
+    width: min(1400px, 100%);
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(210px, .72fr)
+        minmax(0, 1fr);
+
+    gap: clamp(16px, 2vw, 35px);
+
+    align-items: start;
+}
+
+.columna-recuerdos,
+.columna-reflexion {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    min-width: 0;
+}
+
+/* ==========================================
+   BLOQUES DE TEXTO
+========================================== */
+
+.bloque-texto {
+    position: relative;
+
+    padding: 27px 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,253,245,.96),
+            rgba(244,223,197,.96)
+        );
+
+    border: 2px solid #795846;
+    border-radius: 8px;
+
+    box-shadow:
+        0 12px 25px rgba(59,37,26,.18),
+        inset 0 0 20px rgba(143,100,66,.07);
+
+    animation: aparecerBloque .8s ease both;
+}
+
+/* Marco fino interior */
+
+.bloque-texto::before {
+    content: "";
+    position: absolute;
+
+    inset: 7px;
+
+    border: 1px solid rgba(120,78,52,.24);
+    border-radius: 4px;
+
+    pointer-events: none;
+}
+
+.bloque-texto h2 {
+    font-family: "Great Vibes", cursive;
+    font-weight: normal;
+
+    font-size: clamp(30px, 3vw, 44px);
+    color: var(--rojo-oscuro);
+
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.bloque-texto p {
+    position: relative;
+
+    font-size: clamp(18px, 1.7vw, 22px);
+    line-height: 1.55;
+
+    margin-bottom: 17px;
+}
+
+.bloque-texto .frase-final {
+    color: var(--rojo);
+    font-weight: 700;
+    font-style: italic;
+
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* Animación de entrada */
+
+@keyframes aparecerBloque {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   CENTRO - FLOR INTERACTIVA
+========================================== */
+
+.columna-flor {
+    position: relative;
+
+    min-height: 530px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+/* Flor decorativa central */
+
+.flor-interactiva {
+    position: relative;
+
+    width: min(100%, 310px);
+    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: respirarFlor 5s ease-in-out infinite;
+}
+
+/* Pétalos acuarelados */
+
+.flor-interactiva::before {
+    content: "";
+    position: absolute;
+    inset: 5%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,234,216,.95) 0 15%,
+            rgba(177,37,55,.65) 16% 25%,
+            transparent 26%
+        ),
+        repeating-conic-gradient(
+            from 0deg,
+            rgba(194,57,71,.68) 0deg 22deg,
+            rgba(255,224,211,.85) 23deg 44deg,
+            rgba(145,37,51,.65) 45deg 52deg,
+            transparent 53deg 60deg
+        );
+
+    border-radius: 48%;
+
+    opacity: .82;
+
+    clip-path: circle(48%);
+    filter: blur(2px);
+
+    box-shadow:
+        0 0 35px rgba(189,57,67,.2);
+}
+
+/* Aro de tinta */
+
+.flor-interactiva::after {
+    content: "";
+    position: absolute;
+
+    inset: 13%;
+
+    border: 2px dashed rgba(71,39,33,.65);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+/* Luz alrededor del centro */
+
+.brillo-flor {
+    position: absolute;
+
+    width: 62%;
+    height: 62%;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255,247,205,.75),
+        transparent 75%
+    );
+
+    animation: pulsoFlor 3s ease-in-out infinite;
+}
+
+@keyframes respirarFlor {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.035);
+    }
+}
+
+@keyframes pulsoFlor {
+    0%, 100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   BOTÓN JUGAR
+========================================== */
+
+.boton-jugar {
+    position: relative;
+    z-index: 4;
+
+    width: 118px;
+    height: 118px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+
+    border: 3px solid #472923;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 35% 25%,
+        #fff4db,
+        #e6bea3 65%,
+        #be886e
+    );
+
+    color: #54292a;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 20px rgba(83,38,33,.35),
+        inset 0 0 0 5px rgba(255,244,226,.45);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+}
+
+.boton-jugar:hover {
+    transform: scale(1.12);
+
+    box-shadow:
+        0 10px 28px rgba(83,38,33,.45),
+        0 0 25px rgba(190,64,79,.4);
+}
+
+.icono-juego {
+    font-size: 24px;
+    color: var(--rojo);
+}
+
+.mensaje-flor {
+    font-family: "Great Vibes", cursive;
+    font-size: 32px;
+
+    color: var(--rojo-oscuro);
+    margin-top: 20px;
+}
+
+.instruccion-juego {
+    font-size: 17px;
+    color: #755b50;
+
+    max-width: 230px;
+    margin-top: 8px;
+}
+
+/* ==========================================
+   CINTA FOTOGRÁFICA
+========================================== */
+
+.seccion-fotografias {
+    padding: 25px 18px;
+
+    border: 2px solid #6f5140;
+    border-radius: 9px;
+
+    background: rgba(255,243,224,.95);
+
+    box-shadow: 0 12px 25px var(--sombra);
+}
+
+.seccion-fotografias h3 {
+    font-family: "Great Vibes", cursive;
+    font-size: 37px;
+    font-weight: normal;
+
+    color: var(--rojo-oscuro);
+    text-align: center;
+}
+
+.instruccion-fotos {
+    font-size: 17px;
+    text-align: center;
+
+    color: #806253;
+    margin: 10px 0 17px;
+}
+
+/* Ventana de la cinta */
+
+.marco-cinta {
+    position: relative;
+
+    width: 100%;
+    overflow: hidden;
+
+    border: 4px solid #332323;
+    border-radius: 5px;
+
+    background: #211b1a;
+
+    box-shadow:
+        inset 0 0 15px rgba(0,0,0,.7);
+}
+
+/* Cinta desplazable */
+
+.cinta-fotografica {
+    display: flex;
+    align-items: stretch;
+
+    gap: 8px;
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    padding: 20px 12px;
+
+    cursor: grab;
+    user-select: none;
+
+    scrollbar-width: thin;
+    scrollbar-color: #b48a55 #201919;
+}
+
+.cinta-fotografica:active {
+    cursor: grabbing;
+}
+
+/* Cada fotograma */
+
+.fotograma {
+    position: relative;
+
+    flex: 0 0 85%;
+    min-width: 0;
+
+    padding: 18px 10px 15px;
+
+    background: linear-gradient(
+        180deg,
+        #40302b,
+        #1f1918
+    );
+
+    border: 2px solid #a27b50;
+
+    scroll-snap-align: center;
+
+    box-shadow: 0 5px 13px rgba(0,0,0,.45);
+}
+
+.fotograma::before,
+.fotograma::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+    height: 9px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 8px,
+            #c5a883 9px 17px,
+            transparent 18px 28px
+        );
+}
+
+.fotograma::before {
+    top: 3px;
+}
+
+.fotograma::after {
+    bottom: 3px;
+}
+
+.fotograma img {
+    display: block;
+
+    width: 100%;
+    height: 185px;
+
+    object-fit: contain;
+
+    background: #e0cbb3;
+
+    border: 2px solid #c6a47b;
+
+    pointer-events: none;
+}
+
+.fotograma figcaption {
+    text-align: center;
+
+    color: #eed6ad;
+    font-size: 16px;
+
+    margin-top: 8px;
+}
+
+/* Controles */
+
+.controles-cinta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.controles-cinta button {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+
+    border: 2px solid #8a6043;
+    border-radius: 50%;
+
+    background: #f6e5ce;
+    color: var(--rojo-oscuro);
+
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.controles-cinta button:hover {
+    background: #ebcfad;
+}
+
+#contadorFotografias {
+    font-size: 15px;
+    text-align: center;
+    color: #75584a;
+}
+
+/* ==========================================
+   MODAL DEL MINIJUEGO
+========================================== */
+
+.modal-juego[hidden],
+.premio-juego[hidden] {
+    display: none !important;
+}
+
+.modal-juego {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    background: rgba(22,9,13,.86);
+
+    backdrop-filter: blur(8px);
+}
+
+/* Ventana principal */
+
+.ventana-juego {
+    position: relative;
+
+    width: min(760px, 100%);
+    max-height: min(92vh, 850px);
+
+    overflow-y: auto;
+    margin: auto;
+
+    padding: 38px 35px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #fff4e0,
+            #e8d0b3
+        );
+
+    border: 5px double #8a5d45;
+    border-radius: 17px;
+
+    box-shadow:
+        0 25px 85px rgba(0,0,0,.55);
+
+    animation: abrirVentana .5s ease both;
+}
+
+@keyframes abrirVentana {
+    from {
+        opacity: 0;
+        transform: scale(.9) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Botón cerrar */
+
+.cerrar-juego {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    background: transparent;
+    border: none;
+
+    color: #7e2936;
+    font-size: 36px;
+
+    cursor: pointer;
+}
+
+/* Títulos */
+
+.etiqueta-juego {
+    color: var(--rojo);
+    letter-spacing: 4px;
+    font-size: 15px;
+}
+
+.ventana-juego h2 {
+    font-family: "Great Vibes", cursive;
+    font-weight: normal;
+
+    font-size: clamp(38px, 5vw, 60px);
+    color: var(--rojo-oscuro);
+
+    margin: 12px 0 18px;
+}
+
+.historia-juego,
+.pista-juego {
+    max-width: 570px;
+
+    margin: 0 auto 15px;
+
+    font-size: 22px;
+    line-height: 1.45;
+}
+
+.pista-juego {
+    color: #986144;
+    font-style: italic;
+}
+
+/* ==========================================
+   TRES CAJITAS
+========================================== */
+
+.contenedor-cajitas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin: 35px auto;
+}
+
+.cajita {
+    position: relative;
+
+    min-height: 160px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    border: 3px solid #8e6251;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        145deg,
+        #fff6e7,
+        #d9b99a
+    );
+
+    color: #5b3730;
+
+    font-family: inherit;
+    font-size: 21px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 17px rgba(69,39,26,.25);
+
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        background .3s;
+}
+
+.cajita:hover {
+    transform: translateY(-9px) rotate(-2deg);
+
+    box-shadow:
+        0 16px 25px rgba(69,39,26,.35);
+}
+
+.regalo {
+    font-size: 61px;
+    transition: transform .3s;
+}
+
+.cajita:hover .regalo {
+    transform: scale(1.15);
+}
+
+.cajita.correcta {
+    border-color: #b48c40;
+
+    background: linear-gradient(
+        145deg,
+        #fff6d8,
+        #e6bd68
+    );
+
+    animation: cajitaCorrecta .8s ease both;
+}
+
+.cajita.incorrecta {
+    animation: cajitaIncorrecta .4s ease;
+}
+
+@keyframes cajitaCorrecta {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes cajitaIncorrecta {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    30% {
+        transform: translateX(-7px);
+    }
+
+    65% {
+        transform: translateX(7px);
+    }
+}
+
+.resultado-juego {
+    min-height: 35px;
+
+    margin-top: 20px;
+
+    color: #7c3940;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   PREMIO: LLAVE DE LA CARTA IV
+========================================== */
+
+.premio-juego {
+    padding: 25px 15px;
+
+    animation: abrirVentana .5s ease both;
+}
+
+.premio-juego h3 {
+    font-family: "Great Vibes", cursive;
+    font-weight: normal;
+
+    color: #a1273b;
+    font-size: 48px;
+
+    margin-bottom: 14px;
+}
+
+.premio-juego p {
+    font-size: 21px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.llave-premio {
+    display: block;
+
+    width: 155px;
+    height: 175px;
+
+    margin: 20px auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    animation: flotarPremio 3s ease-in-out infinite;
+}
+
+.llave-premio img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 7px 12px rgba(175,113,39,.35));
+}
+
+@keyframes flotarPremio {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.llave-premio:hover {
+    filter: brightness(1.13);
+}
+
+.llave-premio:disabled {
+    opacity: .45;
+    cursor: default;
+    animation: none;
+}
+
+.estado-llave {
+    color: #86543d;
+    font-size: 20px;
+}
+
+/* ==========================================
+   DECORACIONES DE HELLO KITTY,
+   TREN Y CARPA
+========================================== */
+
+/* Se dejan preparadas para agregar
+   decoraciones adicionales si hace falta. */
+
+.decoracion-kitty,
+.decoracion-tren,
+.decoracion-carpa {
+    pointer-events: none;
+}
+
+/* ==========================================
+   RESPONSIVE - TABLETS
+========================================== */
+
+@media (max-width: 1050px) {
+
+    .contenido-planes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .columna-flor {
+        grid-column: 1 / -1;
+        grid-row: 1;
+
+        min-height: 350px;
+    }
+
+    .flor-interactiva {
+        width: 270px;
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVE - CELULARES
+========================================== */
+
+@media (max-width: 650px) {
+
+    .pagina-planes {
+        padding: 95px 13px 100px;
+    }
+
+    .fondo-planes {
+        background-size: auto 820px;
+    }
+
+    .encabezado-planes {
+        padding: 17px;
+        margin-bottom: 30px;
+    }
+
+    .encabezado-planes h1 {
+        font-size: 60px;
+    }
+
+    .subtitulo-planes {
+        font-size: 18px;
+    }
+
+    .contenido-planes {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .columna-flor {
+        grid-column: 1;
+        grid-row: 1;
+
+        min-height: 280px;
+    }
+
+    .flor-interactiva {
+        width: 235px;
+    }
+
+    .boton-jugar {
+        width: 100px;
+        height: 100px;
+        font-size: 24px;
+    }
+
+    .mensaje-flor {
+        font-size: 28px;
+    }
+
+    .bloque-texto {
+        padding: 23px 20px;
+    }
+
+    .bloque-texto p {
+        font-size: 20px;
+    }
+
+    .fotograma img {
+        height: 200px;
+    }
+
+    .contenedor-cajitas {
+        gap: 9px;
+    }
+
+    .cajita {
+        min-height: 125px;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .regalo {
+        font-size: 42px;
+    }
+
+    .ventana-juego {
+        padding: 35px 17px;
+    }
+
+    .historia-juego,
+    .pista-juego {
+        font-size: 19px;
+    }
+
+    .premio-juego h3 {
+        font-size: 39px;
+    }
+
+}
+
+/* ==========================================
+   ACCESIBILIDAD
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+}

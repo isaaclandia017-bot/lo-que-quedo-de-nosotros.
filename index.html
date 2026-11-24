@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, Samantha</title>
+
+    <link rel="stylesheet" href="css/inicio.css">
+</head>
+<body>
+
+    <div class="pagina-inicio">
+
+        <!-- Esquinas doradas -->
+        <div class="esquina esquina-superior-izquierda"></div>
+        <div class="esquina esquina-superior-derecha"></div>
+        <div class="esquina esquina-inferior-izquierda"></div>
+        <div class="esquina esquina-inferior-derecha"></div>
+
+        <!-- Líneas decorativas -->
+        <div class="linea linea-superior"></div>
+        <div class="linea linea-inferior"></div>
+
+        <main class="contenedor">
+            <h2>Para mi querida</h2>
+
+            <h1>Samantha Carolina Vaca Cáceres</h1>
+
+            <div class="barra-dorada"></div>
+
+            <p>
+                Porfavor, te lo pido, no te va a llevar
+            </p>
+
+            <p class="texto-secundario">
+               mas de 10 min... explorale lo hice con cariño
+            </p>
+
+            <p class="indicacion">
+                Presiona el diamante para comenzar
+            </p>
+
+            <button id="botonDiamante" class="boton-diamante" type="button">
+                <span class="diamante"></span>
+            </button>
+
+            <p class="texto-final">
+                No quiero que termine de esta manera
+            </p>
+        </main>
+
+    </div>
+
+<!-- PÁGINAS DE NUESTRA HISTORIA -->
+<div id="pantallaHistoria" hidden>
+
+    <iframe
+        id="visorHistoria"
+        title="Nuestra historia"
+        src="about:blank">
+    </iframe>
+
+</div>
+
+<!-- MÚSICA PERMANENTE -->
+<audio id="musicaFondo" loop preload="auto">
+    <source src="assets/musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CONTROL DE MÚSICA -->
+<button
+    id="controlMusica"
+    type="button"
+    aria-label="Pausar música"
+    hidden>
+    ♫
+</button>
+
+<!-- JAVASCRIPT -->
+<script src="js/inicio.js"></script>
+</body>
+</html>
